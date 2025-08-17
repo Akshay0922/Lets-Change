@@ -1,0 +1,9 @@
+.contact-us-screen{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 79vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
