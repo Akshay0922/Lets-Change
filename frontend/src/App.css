@@ -1,5 +1,42 @@
-.main-app-screen{
+/* .main-app-screen{
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #f0fdfa 0%, #e1feef 20%, #d2ffe2 45%, #dcfce7 70%, #f0fdfa 100%);
+} */
+
+
+/* .main-app-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        #d1fae5 0%,
+        #a7f3d0 30%,
+        #6ee7b7 60%,
+        #34d399 100%
+    );
+} */
+
+
+.main-app-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        #d1fae5 0%,
+        #aef8d5 30%,
+        #a3fdd9 60%,
+        #9bffda 100%
+    );
 }
+
+/* .main-app-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #ecfdf5 50%,
+        #d1fae5 100%
+    );
+} */

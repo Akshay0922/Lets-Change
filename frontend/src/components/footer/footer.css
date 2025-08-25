@@ -6,7 +6,14 @@
     align-items: center;
     padding: 0 111px;
     position: relative;
-    background: linear-gradient(135deg, #f0fdfa 0%, #e1feef 20%, #d2ffe2 45%, #dcfce7 70%, #f0fdfa 100%);
+    /* background: linear-gradient(135deg, #f0fdfa 0%, #e1feef 20%, #d2ffe2 45%, #dcfce7 70%, #f0fdfa 100%); */
+    background: linear-gradient(
+        135deg,
+        #d1fae5 0%,
+        #bfffe1 30%,
+        #b1ffe0 60%,
+        #b7ffe5 100%
+    );
 }
 
 
