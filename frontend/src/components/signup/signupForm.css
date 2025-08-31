@@ -1,0 +1,143 @@
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 35px 28px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #4db8ff, #4dff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.signup-form input {
+  padding: 13px 14px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.18);
+  outline: none;
+  font-size: 15px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.signup-form input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.signup-form input:focus {
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid #4db8ff;
+  box-shadow: 0 0 8px rgba(77, 184, 255, 0.5);
+}
+
+
+.error {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 42px;
+}
+
+.toggle-eye {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  transition: 0.3s;
+}
+
+.toggle-eye:hover {
+  color: #fff;
+}
+
+
+.strength-bar {
+  display: flex;
+  gap: 6px;
+  margin: 2px 0 4px;
+}
+
+.strength-bar .bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.4s ease;
+}
+
+.strength-bar .bar.active:nth-child(1) {
+  background: #ff4d4d; 
+}
+.strength-bar .bar.active:nth-child(2) {
+  background: #ffb84d; 
+}
+.strength-bar .bar.active:nth-child(3) {
+  background: #4db8ff; 
+}
+.strength-bar .bar.active:nth-child(4) {
+  background: #4dff88; 
+}
+
+
+.submit-btn {
+  background: linear-gradient(135deg, #4db8ff, #4a90e2);
+  color: white;
+  padding: 13px;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #357ab7, #2c5a91);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(53, 122, 183, 0.45);
+}
