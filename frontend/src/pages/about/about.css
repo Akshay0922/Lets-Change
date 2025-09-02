@@ -1,9 +1,79 @@
-.about-screen{
+.about-screen {
     font-family: 'Poppins', sans-serif;
     width: 100%;
-    height: 79vh;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0f7e9, #f3fff9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-main-heading {
+    font-size: 36px;
+    font-weight: 600;
+    color: #123524;
+    text-align: center;
+}
+
+.about-main-heading-highlight {
+    color: #41a037;
+}
+
+.about-main-subheading {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-content {
+    width: 90%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.about-content-data {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-content-heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: #123524;
+    margin-bottom: 0;
+}
+
+.about-content-subheading {
+    margin-top: 6px;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.about-image-container {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
     justify-content: center;
-    border-bottom: 2px solid black;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+.about-image:hover {
+    transform: scale(1.05);
 }

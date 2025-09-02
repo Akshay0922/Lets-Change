@@ -1,7 +1,5 @@
 import { FaHandHoldingHeart } from "react-icons/fa";
 
-// import HomeHandImage from '../../assets/LetsStartImage.png';
-
 import './home.css';
 
 export const Home = () => {
