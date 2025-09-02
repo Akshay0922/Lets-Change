@@ -6,14 +6,7 @@
     align-items: center;
     padding: 0 111px;
     position: relative;
-    /* background: linear-gradient(135deg, #f0fdfa 0%, #e1feef 20%, #d2ffe2 45%, #dcfce7 70%, #f0fdfa 100%); */
-    background: linear-gradient(
-        135deg,
-        #c1fbdd 0%,
-        #abffd8 30%,
-        #99ffd6 60%,
-        #80ebc4 100%
-    );
+    background-color: #123524;
 }
 
 
@@ -27,7 +20,7 @@
 .quick-links-title {
     font-size: 20px;
     font-weight: 700;
-    color: #0e2d1c;
+    color: white;
     margin-bottom: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -42,7 +35,7 @@
 
 .quick-links-container a {
     text-decoration: none;
-    color: #333;
+    color: #b0b0b0;
     font-size: 16px;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -54,18 +47,19 @@
     content: '›';
     position: absolute;
     left: 0;
-    color: #123524;
+    color: #b0b0b0;
     font-weight: 700;
     font-size: 16px;
     transition: transform 0.3s ease;
 }
 
 .quick-links-container a:hover {
-    color: #123524;
+    color: white;
     padding-left: 14px;
 }
 
 .quick-links-container a:hover::before {
+    color: white;
     transform: translateX(2px);
 }
 
@@ -95,7 +89,7 @@
 
 .footer-web-name {
     font-size: 18px;
-    color: #123524;
+    color: white;
     font-weight: 600;
     margin-top: 6px;
 }

@@ -17,7 +17,7 @@ export const Footer = () => {
       </div>
 
       <div className="footer-logo-block">
-        <img src={footerLogo} className="footer-logo" alt="Footer Logo" />
+        <NavLink to="/"><img src={footerLogo} className="footer-logo" alt="Footer Logo" /></NavLink>
         <h1 className="footer-web-name">Let's Change</h1>
       </div>
     </footer>
