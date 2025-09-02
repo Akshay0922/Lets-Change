@@ -236,6 +236,7 @@
     background-color: #123524;
     color: white;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .dropdown-link:hover {

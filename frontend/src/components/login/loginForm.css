@@ -1,10 +1,10 @@
-.signup-container {
+.login-container {
   width: 400px;
   height: 86vh;
   border-radius: 0 22px;
 }
 
-.signup-form {
+.login-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -18,7 +18,7 @@
   animation: fadeIn 0.6s ease-in-out;
 }
 
-.signup-form h2 {
+.login-form h2 {
   text-align: center;
   font-size: 24px;
   font-weight: 700;
@@ -93,20 +93,6 @@
   font-size: 18px;
 }
 
-.strength-inside {
-  position: absolute;
-  right: 41px;
-  bottom: 8px;
-  font-size: 9px;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius:520px;
-  background-color: black;
-}
-.strength-inside.weak { color: red; }
-.strength-inside.medium { color: #ffb84d; }
-.strength-inside.strong { color: #4dff88; }
-
 .submit-row {
   display: flex;
   align-items: center;
@@ -149,13 +135,13 @@
   }
 }
 
-.signup-login-link {
+.login-signup-link {
   text-align: center;
   font-size: 11px;
   color: #123524;
 }
 
-.signup-login-link span {
+.login-signup-link span {
   color: #007bff;
   text-decoration: none;
   font-weight: 600;
@@ -164,7 +150,7 @@
   cursor: pointer;
 }
 
-.signup-login-link span:hover {
+.login-signup-link span:hover {
   color: #123524;
 }
 
@@ -192,11 +178,11 @@
 }
 
 @media (max-width: 500px) {
-  .signup-form {
+  .login-form {
     padding: 20px;
     max-width: 100%;
   }
-  .signup-form h2 {
+  .login-form h2 {
     font-size: 22px;
   }
   .input-box input {
