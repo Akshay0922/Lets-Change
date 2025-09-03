@@ -48,7 +48,7 @@ export const Header = () => {
         <NavLink to="/contact-us" className="nav-link">Contact Us</NavLink>
       </nav>
 
-      <NavLink to="/lets-start" className="main-web-btn">
+      <NavLink to="/lets-change" className="main-web-btn">
         Let's Start
       </NavLink>
 

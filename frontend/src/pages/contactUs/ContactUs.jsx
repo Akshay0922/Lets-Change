@@ -6,6 +6,7 @@ export const ContactUs = () => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
+        subject: "",
         message: "",
     });
 
@@ -16,13 +17,13 @@ export const ContactUs = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         alert("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "" });
     };
 
     return (
         <div className="contact-page">
             <div className="contact-container">
-                <h1 className="contact-title">Contact Us</h1>
+                <h1 className="contact-title"><span className="contact-us-main-heading-highlight">Contact </span>Us</h1>
                 <p className="contact-subtitle">
                     Have questions? We’d love to hear from you!
                 </p>
@@ -42,6 +43,14 @@ export const ContactUs = () => {
                             name="email"
                             placeholder="Your Email"
                             value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="text"
+                            name="subject"
+                            placeholder="Subject"
+                            value={formData.subject}
                             onChange={handleChange}
                             required
                         />

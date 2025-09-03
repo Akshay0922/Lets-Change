@@ -197,7 +197,7 @@
 }
 
 .account-toggle:hover {
-  background-color: rgba(18, 53, 36, 0.1);
+  background-color: rgba(18, 53, 36, 0.2);
   cursor: pointer;
 }
 
@@ -208,7 +208,7 @@
 .dropdown-menu {
     position: absolute;
     top: 120%;
-    right: -18%;
+    right: 18%;
     display: flex;
     flex-direction: column;
     align-items: center;

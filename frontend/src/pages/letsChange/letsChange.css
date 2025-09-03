@@ -1,0 +1,59 @@
+.letsstart-section {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 0 0 100px 0;
+  width: 100%;
+}
+
+.letsstart-heading {
+  font-size: 40px;
+  font-weight: 600;
+  color: #123524;
+  margin-bottom: 50px;
+}
+
+.lets-start-main-heading-highlight {
+    color: #41a037;
+}
+
+.letsstart-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.start-card {
+  height: 220px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 0 22px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.start-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.start-icon {
+  font-size: 60px;
+  color: #123524;
+  margin-bottom: 15px;
+}
+
+.start-card h3 {
+  font-size: 22px;
+  color: #123524;
+  margin-bottom: 10px;
+}
+
+.start-card p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;
+}

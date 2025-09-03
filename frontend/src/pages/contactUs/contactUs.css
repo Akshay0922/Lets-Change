@@ -1,26 +1,29 @@
 .contact-page {
+    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    padding: 20px 20px 80px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .contact-container {
-    max-width: 1000px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 0 22px;
-    padding: 31px;
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(14px);
+    /* background: rgba(255, 255, 255, 0.4); */
+    padding: 11px 60px 80px 60px;
+    /* box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1); */
+    /* backdrop-filter: blur(14px); */
 }
 
 .contact-title {
     text-align: center;
     font-size: 2.5rem;
     color: #123524;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.contact-us-main-heading-highlight {
+    color: #41a037;
 }
 
 .contact-subtitle {
@@ -32,7 +35,7 @@
 
 .contact-content {
     display: flex;
-    gap: 40px;
+    gap: 80px;
     flex-wrap: wrap;
 }
 
@@ -56,7 +59,7 @@
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.11);
     backdrop-filter: blur(14px);
     border: 1px solid #123524;
     box-shadow: 0px 0px 8px rgba(52, 211, 153, 0.3);
@@ -80,7 +83,8 @@
 .contact-info {
     flex: 1;
     background: white;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
+    border: 1px solid #123524;
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
 }
@@ -92,7 +96,7 @@
 
 .contact-info p {
     margin: 8px 0;
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     color: #374151;
 }
 
