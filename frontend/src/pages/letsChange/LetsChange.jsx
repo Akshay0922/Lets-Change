@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import {
   FaSpa,
   FaCut,
@@ -26,6 +28,12 @@ import {
 import "./letsChange.css";
 
 export const LetsChange = () => {
+  const navigate = useNavigate();
+
+  const handleCardClick = (id) => {
+    navigate(`/change/${id}`);
+  };
+
   const startData = [
     { id: 1, icon: <FaSpa className="start-icon" />, title: "Facial Care", desc: "Rejuvenating treatments for glowing and healthy skin." },
     { id: 2, icon: <FaCut className="start-icon" />, title: "Hair Care", desc: "Trendy styles and nourishing care for shiny hair." },
@@ -58,7 +66,7 @@ export const LetsChange = () => {
       <h2 className="letsstart-heading">Let’s Start the <span className="lets-start-main-heading-highlight">Change</span></h2>
       <div className="letsstart-cards">
         {startData.map((item) => (
-          <div className="start-card" key={item.id}>
+          <div className="start-card" key={item.id} onClick={() => handleCardClick(item.id)}>
             {item.icon}
             <h3>{item.title}</h3>
             <p>{item.desc}</p>

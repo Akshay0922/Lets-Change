@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import { ScrollToTop } from './components/scrollToTop/ScrollToTop';
+
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 
@@ -8,6 +10,7 @@ import { About } from './pages/about/About';
 import { ContactUs } from './pages/contactUs/ContactUs';
 
 import { LetsChange } from './pages/letsChange/LetsChange';
+import { ChangeDetail } from "./pages/letsChange/changeDetail/ChangeDetail";
 
 import './App.css';
 
@@ -15,12 +18,17 @@ function App() {
   return (
     <div className="main-app-screen">
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <Routes>
+          
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact-us" element={<ContactUs />} />
+
           <Route path="/lets-change" element={<LetsChange />} />
+          <Route path="/change/:id" element={<ChangeDetail />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>
