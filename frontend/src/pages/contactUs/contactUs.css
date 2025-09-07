@@ -1,3 +1,6 @@
+/* ==============================
+   CONTACT PAGE STYLING
+   ============================== */
 .contact-page {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
@@ -8,10 +11,7 @@
 
 .contact-container {
     width: 100%;
-    /* background: rgba(255, 255, 255, 0.4); */
     padding: 11px 60px 80px 60px;
-    /* box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1); */
-    /* backdrop-filter: blur(14px); */
 }
 
 .contact-title {
@@ -96,7 +96,7 @@
 
 .contact-info p {
     margin: 8px 0;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: #374151;
 }
 
@@ -104,10 +104,91 @@
     margin-top: 15px;
     border-radius: 10px;
     overflow: hidden;
+    width: 100%;
 }
 
+/* ==============================
+   RESPONSIVE MEDIA QUERIES
+   ============================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .contact-container {
+        padding: 20px 30px 60px 30px;
+    }
+
+    .contact-content {
+        gap: 40px;
+    }
+
+    .contact-title {
+        font-size: 2rem;
+    }
+}
+
+/* Small tablets / large phones */
 @media (max-width: 768px) {
     .contact-content {
         flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-container {
+        padding: 20px;
+    }
+
+    .contact-title {
+        font-size: 1.8rem;
+    }
+
+    .contact-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+
+    .contact-info {
+        padding: 15px;
+    }
+
+    .contact-info p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 15px;
+    }
+
+    .contact-title {
+        font-size: 1.6rem;
+    }
+
+    .contact-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+
+    .contact-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .contact-info h2 {
+        font-size: 1.2rem;
+    }
+
+    .contact-info p {
+        font-size: 0.75rem;
+    }
+
+    .map {
+        height: 200px;
     }
 }

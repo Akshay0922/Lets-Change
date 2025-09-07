@@ -1,9 +1,12 @@
+/* BASE STYLES */
 .main-header-section {
     font-family: 'Poppins', sans-serif;
     height: 31vh;
     display: flex;
     align-items: center;
     position: relative;
+    padding: 0 20px;
+    flex-wrap: wrap;
 }
 
 .header-logo-container {
@@ -36,32 +39,6 @@
     animation: shadowStretch 3s ease-in-out infinite;
 }
 
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes shadowStretch {
-
-    0%,
-    100% {
-        transform: translateX(-50%) scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translateX(-50%) scale(0.7);
-        opacity: 0.7;
-    }
-}
-
 .header-web-name {
     font-size: 31px;
     color: #123524;
@@ -69,17 +46,13 @@
     text-decoration: none;
 }
 
-
-
-
-
-
 .header-navbar {
     display: flex;
     justify-content: center;
     gap: 30px;
     margin-left: 15%;
     width: 300px;
+    flex-wrap: wrap;
 }
 
 .nav-link {
@@ -161,11 +134,6 @@
     transform: scale(0.9);
 }
 
-
-
-
-
-
 .account-dropdown {
     margin-left: auto;
     margin-right: 50px;
@@ -188,17 +156,17 @@
 }
 
 .account-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
 
 .account-toggle:hover {
-  background-color: rgba(18, 53, 36, 0.2);
-  cursor: pointer;
+    background-color: rgba(18, 53, 36, 0.2);
+    cursor: pointer;
 }
 
 .account-toggle:active{
@@ -229,12 +197,11 @@
     justify-content: center;
     padding: 6px 18px;
     text-decoration: none;
-    color: #123524;
-    margin: 6px;
+    color: white;
+    background-color: #123524;
+    margin: 6px 0;
     border-radius: 0 11px;
     font-size: 15px;
-    background-color: #123524;
-    color: white;
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -245,4 +212,119 @@
 
 .dropdown-link:active{
     transform: scale(0.93);
+}
+
+/* FLOAT & SHADOW ANIMATIONS */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes shadowStretch {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    50% { transform: translateX(-50%) scale(0.7); opacity: 0.7; }
+}
+
+
+/* ================== RESPONSIVE MEDIA QUERIES ================== */
+
+/* Tablets (up to 1024px) */
+@media (max-width: 1024px) {
+    .header-navbar {
+        margin-left: 5%;
+        gap: 20px;
+        width: auto;
+    }
+
+    .main-web-btn {
+        margin-left: 20px;
+    }
+
+    .account-dropdown {
+        margin-right: 20px;
+        padding: 7px 15px;
+    }
+}
+
+/* Tablets + Mobiles (up to 768px) */
+@media (max-width: 768px) {
+    .main-header-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+        height: auto;
+    }
+
+    .header-logo-container {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+    }
+
+    .header-web-name {
+        font-size: 20px;
+        margin: 6px 0 10px 0;
+        text-align: center;
+    }
+
+    .header-navbar {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        margin: 10px 0;
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+
+    .main-web-btn {
+        width: 100px;
+        padding: 6px 66px;
+        font-size: 14px;
+        margin: 20px 0;
+    }
+
+    .account-dropdown {
+        padding: 5px 12px;
+        font-size: 14px;
+        margin: 10px 0 20px 0;
+    }
+
+    .dropdown-menu {
+        right: 50%;
+        transform: translateX(50%);
+        top: 100%;
+        padding: 9px 31px;
+        min-width: 90px;
+    }
+
+    .dropdown-link {
+        font-size: 13px;
+        padding: 6px 22px;
+    }
+}
+
+/* Small Mobiles (up to 480px) */
+@media (max-width: 480px) {
+    .header-navbar {
+        gap: 30px;
+    }
+
+    .main-web-btn {
+        width: 90px;
+        padding: 6px 40px;
+        font-size: 13px;
+    }
+
+    .account-dropdown {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+
+    .dropdown-link {
+        font-size: 12px;
+        padding: 6px 18px;
+    }
 }
