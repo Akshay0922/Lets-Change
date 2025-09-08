@@ -40,7 +40,7 @@
 
 .footer-content-block {
     width: 100%;
-    margin-left: 200px;
+    margin-left: 222px;
     display: flex;
     flex-direction: row;
     gap: 100px;
@@ -80,9 +80,9 @@
     color: #b0b0b0;
     font-size: 16px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     position: relative;
-    padding-left: 10px;
+    padding-left: 11px;
 }
 
 .quick-links-container a::before,
@@ -99,7 +99,7 @@
 .quick-links-container a:hover,
 .resources-container a:hover {
     color: white;
-    padding-left: 14px;
+    transform: translateX(4px);
 }
 
 .quick-links-container a:hover::before,

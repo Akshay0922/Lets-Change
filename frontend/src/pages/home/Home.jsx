@@ -5,6 +5,16 @@ import './home.css';
 export const Home = () => {
     const navigate = useNavigate();
 
+    const handleHomeCardClick = (id) => {
+        navigate(`/change/${id}`);
+    };
+
+    const homeStartData = [
+        { id: 1, icon: <FaSpa className="home-start-icon" />, title: "Facial Care", desc: "Rejuvenating treatments for glowing and healthy skin." },
+        { id: 2, icon: <FaCut className="home-start-icon" />, title: "Hair Care", desc: "Trendy styles and nourishing care for shiny hair." },
+        { id: 3, icon: <FaLeaf className="home-start-icon" />, title: "Body Care", desc: "Relaxing therapies for complete body wellness." },
+    ];
+
     return (
         <>
             <section className='home-screen'>
@@ -33,13 +43,13 @@ export const Home = () => {
                     <div className="home-about-content">
                         <h2 className="about-section-heading">About Us</h2>
                         <p className="about-section-text">
-                            We believe change is not just an action, it’s a lifestyle.  
-                            Our journey is about inspiring individuals to take that first step 
-                            towards personal growth and transformation. With the right guidance 
+                            We believe change is not just an action, it’s a lifestyle.
+                            Our journey is about inspiring individuals to take that first step
+                            towards personal growth and transformation. With the right guidance
                             and motivation, anyone can unlock their true potential.
                         </p>
-                        <button 
-                            className="about-section-btn" 
+                        <button
+                            className="about-section-btn"
                             onClick={() => navigate("/about")}
                         >
                             Know More
@@ -58,12 +68,12 @@ export const Home = () => {
                     <div className="home-contact-content">
                         <h2 className="contact-section-heading">Contact Us</h2>
                         <p className="contact-section-text">
-                            Have questions, suggestions, or just want to connect?  
+                            Have questions, suggestions, or just want to connect?
                             Our team is here to listen and respond. Reach out today
                             and let’s build something meaningful together.
                         </p>
-                        <button 
-                            className="contact-section-btn" 
+                        <button
+                            className="contact-section-btn"
                             onClick={() => navigate("/contact-us")}
                         >
                             Get in Touch
@@ -75,24 +85,16 @@ export const Home = () => {
                 <div className="home-services-section">
                     <h2 className="services-heading">Our Main Services</h2>
                     <div className="services-cards">
-                        <div className="service-card">
-                            <FaSpa className="service-icon" />
-                            <h3>Facial Care</h3>
-                            <p>Rejuvenating treatments for glowing and healthy skin.</p>
-                        </div>
-                        <div className="service-card">
-                            <FaCut className="service-icon" />
-                            <h3>Hair Care</h3>
-                            <p>Trendy styles and nourishing care for shiny hair.</p>
-                        </div>
-                        <div className="service-card">
-                            <FaLeaf className="service-icon" />
-                            <h3>Body Care</h3>
-                            <p>Relaxing therapies for complete body wellness.</p>
-                        </div>
+                        {homeStartData.map((item) => (
+                            <div className="home-start-card" key={item.id} onClick={() => handleHomeCardClick(item.id)}>
+                                {item.icon}
+                                <h3>{item.title}</h3>
+                                <p>{item.desc}</p>
+                            </div>
+                        ))}
                     </div>
-                    <button 
-                        className="explore-btn" 
+                    <button
+                        className="explore-btn"
                         onClick={() => navigate("/lets-change")}
                     >
                         Explore More

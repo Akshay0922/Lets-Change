@@ -277,39 +277,40 @@
     margin-bottom: 40px;
 }
 
-.service-card {
-    height: 200px;
-    width: 300px;
-    padding: 22px;
-    border-radius: 0 22px;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(16px);
-    border: 1px solid #123524;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+.home-start-card {
+  height: 220px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 0 22px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid #123524;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
-.service-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+.home-start-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-.service-icon {
-    font-size: 60px;
-    color: #123524;
-    margin-bottom: 15px;
+.home-start-icon {
+  font-size: 60px;
+  color: #123524;
+  margin-bottom: 15px;
 }
 
-.service-card h3 {
-    font-size: 22px;
-    color: #123524;
-    margin-bottom: 10px;
+.home-start-card h3 {
+  font-size: 22px;
+  color: #123524;
+  margin-bottom: 10px;
 }
 
-.service-card p {
-    font-size: 15px;
-    color: #333;
-    line-height: 1.5;
+.home-start-card p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;
 }
 
 .explore-btn {
@@ -326,4 +327,145 @@
 
 .explore-btn:hover {
     transform: translateY(-6px);
+}
+
+
+/* ====== Media Queries for Responsive ====== */
+
+/* Large tablets / smaller laptops */
+@media (max-width: 992px) {
+    /* Hero section */
+    .home-hero-section {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .home-img-container {
+        order: 1;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .home-hero-container{
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        order: 2;
+    }
+
+    .home-main-heading {
+        font-size: 3rem;
+    }
+
+    .home-main-subheading,
+    .home-tagline {
+        font-size: 1rem;
+    }
+
+    .home-hero-btn {
+        width: 70%;
+        align-self: center;
+    }
+
+    /* About section */
+    .home-about-section,
+    .home-contact-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+
+    .home-about-icon-container,
+    .home-contact-icon-container {
+        order: 1;
+        margin-bottom: 20px;
+    }
+
+    .home-about-content,
+    .home-contact-content {
+        order: 2;
+    }
+
+    .about-section-btn,
+    .contact-section-btn {
+        order: 3;
+        margin-top: 20px;
+    }
+
+    .home-about-icon,
+    .home-contact-icon {
+        font-size: 6rem;
+    }
+}
+
+/* Small devices / mobiles */
+@media (max-width: 576px) {
+    /* Hero section */
+    .home-main-heading {
+        font-size: 2.5rem;
+    }
+
+    .home-main-subheading,
+    .home-tagline {
+        font-size: 0.9rem;
+    }
+
+    .home-hero-btn {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+
+    /* About & Contact stacked order */
+    .home-about-icon,
+    .home-contact-icon {
+        font-size: 6rem;
+    }
+
+    .about-section-heading,
+    .contact-section-heading {
+        font-size: 2rem;
+    }
+
+    .about-section-text,
+    .contact-section-text {
+        font-size: 0.95rem;
+    }
+
+    .about-section-btn,
+    .contact-section-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+
+    /* Services section heading & cards */
+    .services-heading {
+        font-size: 2rem;
+    }
+
+    .home-start-card {
+        width: 70%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .home-start-icon {
+        font-size: 2.5rem;
+    }
+
+    .home-start-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .home-start-card p {
+        font-size: 0.85rem;
+    }
+
+    .explore-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
 }
