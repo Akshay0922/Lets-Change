@@ -59,7 +59,7 @@
   line-height: 1.6;
 }
 
-.about-icon-container {
+.about-img-container {
   flex: 1;
   min-width: 280px;
   display: flex;
@@ -67,21 +67,29 @@
   align-items: center;
 }
 
-.about-icon {
-  font-size: 250px;
-  color: #123524;
-  transition: transform 0.4s ease, color 0.4s ease;
-  animation: fadeInScale 1.2s ease forwards;
+.about-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  animation: fadeInScale 1.2s ease;
 }
 
-.about-icon:hover {
+.about-img:hover {
   transform: scale(1.1);
-  color: #123524;
+  filter: drop-shadow(2px 2px 6px #123524);
 }
 
 @keyframes fadeInScale {
-  0% { opacity: 0; transform: scale(0.5); }
-  100% { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .about-me {
@@ -155,8 +163,9 @@
     font-size: 22px;
   }
 
-  .about-icon {
-    font-size: 200px;
+  .about-img {
+    width: 200px;
+    height: 200px;
   }
 
   .about-me-heading {
@@ -187,8 +196,9 @@
     margin-bottom: 50px;
   }
 
-  .about-icon {
-    font-size: 160px;
+  .about-img {
+    width: 160px;
+    height: 160px;
   }
 
   .about-me-heading {
@@ -228,8 +238,9 @@
     font-size: 14px;
   }
 
-  .about-icon {
-    font-size: 120px;
+  .about-img {
+    width: 150px;
+    height: 150px;
   }
 
   .about-me-heading {

@@ -1,73 +1,12 @@
-// import ChangeImage from '../../assets/aboutChangeImage.png';
-// import './about.css';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
-// export const About = () => {
-//     return (
-//         <div className="about-screen">
-//             <section>
-//                 <h1 className="about-main-heading">
-//                     My <span className="about-main-heading-highlight">Journey</span>
-//                 </h1>
-//                 <p className="about-main-subheading">
-//                     A reflection on growth, resilience, and transformation
-//                 </p>
-//             </section>
+import MyPic from '../../assets/MyPic.jpg';
 
-//             <section className="about-content">
-//                 <div className="about-content-data">
-//                     <h2 className="about-content-heading">The Beginning</h2>
-//                     <p className="about-content-subheading">
-//                         Every journey starts with a spark. For me, it began with curiosity 
-//                         and a strong desire to explore new possibilities. What once felt 
-//                         like a simple step soon turned into a path of self-discovery and 
-//                         determination.
-//                     </p>
-
-//                     <h2 className="about-content-heading">The Process</h2>
-//                     <p className="about-content-subheading">
-//                         Growth didn’t come overnight. It was built through consistent effort, 
-//                         embracing challenges, and learning from setbacks. Each obstacle became 
-//                         a stepping stone, shaping me into someone stronger, more focused, and 
-//                         ready to adapt.
-//                     </p>
-
-//                     <h2 className="about-content-heading">The Results</h2>
-//                     <p className="about-content-subheading">
-//                         Looking back, the transformation is more than just progress—it’s 
-//                         a shift in mindset. Today, I stand with greater clarity, confidence, 
-//                         and purpose, prepared to face new opportunities and continue this 
-//                         journey of lifelong learning.
-//                     </p>
-//                 </div>
-
-//                 <div className="about-image-container">
-//                     <img
-//                         src={ChangeImage}
-//                         alt="Journey Illustration"
-//                         className="about-image"
-//                     />
-//                 </div>
-//             </section>
-//         </div>
-//     );
-// };
-
-
-
-
-
-
-
-
-
-
-import { FaUserCircle, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import "./about.css";
 
 export const About = () => {
   return (
     <div className="about-screen">
-      {/* Heading Section */}
       <section>
         <h1 className="about-main-heading">
           My <span className="about-main-heading-highlight">Journey</span>
@@ -77,7 +16,6 @@ export const About = () => {
         </p>
       </section>
 
-      {/* Journey Content Section */}
       <section className="about-content">
         <div className="about-content-data">
           <h2 className="about-content-heading">The Beginning</h2>
@@ -105,17 +43,21 @@ export const About = () => {
           </p>
         </div>
 
-        {/* Icon Instead of Image */}
-        <div className="about-icon-container">
-          <FaUserCircle className="about-icon" />
+        <div className="about-img-container">
+          <img
+            src={MyPic}
+            alt="About Image"
+            className="about-img"
+          />
         </div>
+
       </section>
 
       {/* About Me + Social Links Section */}
       <section className="about-me">
         <h2 className="about-me-heading">About Me</h2>
         <p className="about-me-text">
-          Hello! I’m Akshay G, a passionate MCA student who loves coding, learning,
+          Hello! I’m Akshay, a passionate MCA student who loves coding, learning,
           and exploring new technologies every single day. I believe in growth,
           consistency, and creating meaningful change through dedication and
           curiosity.

@@ -1,4 +1,4 @@
-import { FaHandHoldingHeart, FaUsers, FaEnvelopeOpenText, FaSpa, FaCut, FaLeaf } from "react-icons/fa";
+import { FaHandHoldingHeart, FaUsers, FaEnvelopeOpenText, FaSpa, FaCut, FaBrain } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import './home.css';
 
@@ -10,9 +10,9 @@ export const Home = () => {
     };
 
     const homeStartData = [
-        { id: 1, icon: <FaSpa className="home-start-icon" />, title: "Facial Care", desc: "Rejuvenating treatments for glowing and healthy skin." },
-        { id: 2, icon: <FaCut className="home-start-icon" />, title: "Hair Care", desc: "Trendy styles and nourishing care for shiny hair." },
-        { id: 3, icon: <FaLeaf className="home-start-icon" />, title: "Body Care", desc: "Relaxing therapies for complete body wellness." },
+        { id: 1, icon: <FaSpa className="home-start-icon" />, title: "Facial Care", desc: "Rejuvenating treatments to keep your skin fresh, glowing, and healthy." },
+          { id: 2, icon: <FaCut className="home-start-icon" />, title: "Hair Care", desc: "Trendy hairstyles, nourishing routines, and tips for strong, shiny hair." },
+          { id: 3, icon: <FaBrain className="home-start-icon" />, title: "Mental Wellness", desc: "Mindfulness practices, stress management, and emotional balance." }
     ];
 
     return (
