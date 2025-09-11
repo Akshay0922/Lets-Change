@@ -3,10 +3,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 import "./loginForm.css";
 
-const LoginForm = ({ switchToSignup }) => {
+const LoginForm = ({ switchToSignup, onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -22,14 +23,39 @@ const LoginForm = ({ switchToSignup }) => {
         .required("Email is required"),
       password: Yup.string().required("Password is required"),
     }),
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
       setLoading(true);
-      setTimeout(() => {
+      try {
+        const res = await fetch("http://localhost:2209/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          toast.success("Login successful! Welcome back.");
+          resetForm();
+
+          setTimeout(() => {
+            onClose();
+          }, 1500);
+
+          // save token in localStorage
+          localStorage.setItem("token", data.token);
+          console.log("User:", data.user);
+
+          setTimeout(() => setSuccess(false), 4000);
+        } else {
+          toast.error(`${data.message}`);
+        }
+      } catch (error) {
+        console.error("Login error:", error);
+        toast.error("Something went wrong, please try again.");
+      } finally {
         setLoading(false);
-        setSuccess(true);
-        resetForm();
-        setTimeout(() => setSuccess(false), 4000);
-      }, 2000);
+      }
     },
   });
 

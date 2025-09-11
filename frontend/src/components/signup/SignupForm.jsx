@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 import "./signupForm.css";
 
@@ -13,7 +14,7 @@ const getPasswordStrength = (password) => {
   return "Weak";
 };
 
-const SignupForm = ({ switchToLogin }) => {
+const SignupForm = ({ switchToLogin, onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showCPassword, setShowCPassword] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState("");
@@ -39,16 +40,36 @@ const SignupForm = ({ switchToLogin }) => {
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required("Confirm your password"),
     }),
-    onSubmit: (values, { resetForm }) => {
+
+    onSubmit: async (values, { resetForm }) => {
       setLoading(true);
-      setTimeout(() => {
+      try {
+        const res = await fetch("http://localhost:2209/api/auth/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          toast.success("Signup successful! Welcome aboard.");
+          resetForm();
+          setPasswordStrength("");
+          setTimeout(() => {
+            onClose();
+          }, 1500);
+          setTimeout(() => setSuccess(false), 4000);
+        } else {
+          toast.error(`${data.message}`);
+        }
+      } catch {
+        toast.error("Something went wrong");
+      } finally {
         setLoading(false);
-        setSuccess(true);
-        resetForm();
-        setPasswordStrength("");
-        setTimeout(() => setSuccess(false), 4000);
-      }, 2000);
+      }
     },
+
   });
 
   const handlePasswordChange = (e) => {
@@ -60,7 +81,7 @@ const SignupForm = ({ switchToLogin }) => {
     <div className="signup-container">
       {success && (
         <div className="success-card">
-          🎉 Signup Successful! Welcome aboard.
+          Signup Successful! Welcome aboard.
         </div>
       )}
 
@@ -181,7 +202,7 @@ const SignupForm = ({ switchToLogin }) => {
           <div className="signup-login-link">
             Already have an account? <span onClick={switchToLogin}>Login</span>
           </div>
-          
+
         </div>
 
       </form>
