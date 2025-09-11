@@ -1,8 +1,5 @@
 import {
-  FaSpa, FaCut, FaBrain,
-  FaAppleAlt, FaPrayingHands, FaSmile, FaWater,
-  FaSeedling, FaBook, FaLightbulb, FaHandsHelping,
-  FaGrinStars, FaUserCheck, FaShieldAlt
+  FaSpa, FaCut, FaBrain
 } from "react-icons/fa";
 
 // FACIAL CARE
@@ -14,6 +11,7 @@ import JawRelease from '../../../assets/contentImages/facialCare/jawRelease.jpg'
 
 // HAIR CARE
 import CoconutOil from '../../../assets/contentImages/hairCare/coconutOil.jpg';
+import TenderCoconutOil from '../../../assets/contentImages/hairCare/tenderCoconutOil.jpg';
 import HotWater from '../../../assets/contentImages/hairCare/hotWater.jpg';
 import ScalpMassage from '../../../assets/contentImages/hairCare/scalpMassage.jpg';
 
@@ -161,6 +159,14 @@ export const changeData = {
         image: "PostureImprovement",
         video: "https://www.youtube.com/embed/XXXX12"
       }
+    ],
+    products: [
+      {
+        name: "Tender Coconut Oil",
+        image: TenderCoconutOil,
+        price: 299,
+        displayPrice: "₹299",
+      },
     ]
   },
 

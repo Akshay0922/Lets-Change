@@ -14,6 +14,7 @@ import { ContactUs } from './pages/contactUs/ContactUs';
 
 import { LetsChange } from './pages/letsChange/LetsChange';
 import { ChangeDetail } from "./pages/letsChange/changeDetail/ChangeDetail";
+import {Success} from "./components/paymentSuccess/Success";
 
 import './App.css';
 
@@ -31,6 +32,7 @@ function App() {
 
           <Route path="/lets-change" element={<LetsChange />} />
           <Route path="/change/:id" element={<ChangeDetail />} />
+          <Route path="/success" element={<Success />} />
 
         </Routes>
         <Footer />
