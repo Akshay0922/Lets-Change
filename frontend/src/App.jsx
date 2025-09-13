@@ -16,6 +16,8 @@ import { LetsChange } from './pages/letsChange/LetsChange';
 import { ChangeDetail } from "./pages/letsChange/changeDetail/ChangeDetail";
 import {Success} from "./components/paymentSuccess/Success";
 
+import { ScrollToTopBtn } from './components/scrollToTopBtn/ScrollToTopBtn';
+
 import './App.css';
 
 function App() {
@@ -37,6 +39,7 @@ function App() {
         </Routes>
         <Footer />
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
+        <ScrollToTopBtn />
       </BrowserRouter>
     </div>
   );
