@@ -14,7 +14,10 @@ import { ContactUs } from './pages/contactUs/ContactUs';
 
 import { LetsChange } from './pages/letsChange/LetsChange';
 import { ChangeDetail } from "./pages/letsChange/changeDetail/ChangeDetail";
-import {Success} from "./components/paymentSuccess/Success";
+import { Success } from "./components/paymentSuccess/Success";
+
+import { SuccessStories } from './pages/successStories/SuccessStories';
+import { SuccessStoryDetail } from './pages/successStories/successStoryDetail/SuccessStoryDetail';
 
 import { ScrollToTopBtn } from './components/scrollToTopBtn/ScrollToTopBtn';
 
@@ -27,7 +30,7 @@ function App() {
         <ScrollToTop />
         <Header />
         <Routes>
-          
+
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact-us" element={<ContactUs />} />
@@ -35,6 +38,9 @@ function App() {
           <Route path="/lets-change" element={<LetsChange />} />
           <Route path="/change/:id" element={<ChangeDetail />} />
           <Route path="/success" element={<Success />} />
+
+          <Route path='/success-stories' element={<SuccessStories />} />
+          <Route path='/success-stories/:id' element={<SuccessStoryDetail />} />
 
         </Routes>
         <Footer />

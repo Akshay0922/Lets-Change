@@ -10,10 +10,25 @@ import nodemailer from "nodemailer";
 import authRoutes from "./routes/authRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 
+import successStoriesRoutes from "./routes/successStories.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
 // Middleware
 app.use(express.json());
+
 // app.use(cors());
 app.use(cors({ origin: "http://localhost:5173" }));
+
+// For __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve uploaded images
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// Success Stories API
+app.use("/api/success-stories", successStoriesRoutes);
 
 // Routes
 app.use("/api/auth", authRoutes);
