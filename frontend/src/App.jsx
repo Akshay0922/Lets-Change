@@ -19,6 +19,10 @@ import { Success } from "./components/paymentSuccess/Success";
 import { SuccessStories } from './pages/successStories/SuccessStories';
 import { SuccessStoryDetail } from './pages/successStories/successStoryDetail/SuccessStoryDetail';
 
+import { AddBlog } from './pages/blog/addBlog/AddBlog';
+import { Blog } from './pages/blog/Blog';
+import { BlogDetail } from './pages/blog/blogDetail/BlogDetail';
+
 import { ScrollToTopBtn } from './components/scrollToTopBtn/ScrollToTopBtn';
 
 import './App.css';
@@ -41,6 +45,12 @@ function App() {
 
           <Route path='/success-stories' element={<SuccessStories />} />
           <Route path='/success-stories/:id' element={<SuccessStoryDetail />} />
+
+          <Route path="/add-blog" element={<AddBlog />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/blog/edit/:id" element={<BlogDetail />} />
+          <Route path="/blog/delete/:id" element={<BlogDetail />} />
 
         </Routes>
         <Footer />

@@ -14,6 +14,8 @@ import successStoriesRoutes from "./routes/successStories.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
+import blogRoutes from "./routes/blogRoutes.js";
+
 // Middleware
 app.use(express.json());
 
@@ -33,6 +35,8 @@ app.use("/api/success-stories", successStoriesRoutes);
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/payment", paymentRoutes);
+
+app.use("/api/blogs", blogRoutes);
 
 // Contact form route
 app.post("/api/contact", async (req, res) => {

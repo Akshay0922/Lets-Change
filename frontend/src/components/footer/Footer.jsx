@@ -28,7 +28,7 @@ export const Footer = () => {
           <h2 className="resources-title">Resources</h2>
           <div className="resources-container">
             <NavLink to="/success-stories">Success Stories</NavLink>
-            <NavLink to="/blogs">Blogs</NavLink>
+            <NavLink to="/blog">Blogs</NavLink>
             <NavLink to="/tips-tricks">Tips & Tricks</NavLink>
           </div>
         </div>
