@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BackBtn } from "../../../components/backBtn/BackBtn";
-import "../blog.css";
+import "./addBlog.css";
 
 export const AddBlog = () => {
     const [title, setTitle] = useState("");

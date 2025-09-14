@@ -23,6 +23,8 @@ import { AddBlog } from './pages/blog/addBlog/AddBlog';
 import { Blog } from './pages/blog/Blog';
 import { BlogDetail } from './pages/blog/blogDetail/BlogDetail';
 
+import { TipsAndTricks } from './pages/tipsTricks/TipsAndTricks';
+
 import { ScrollToTopBtn } from './components/scrollToTopBtn/ScrollToTopBtn';
 
 import './App.css';
@@ -51,6 +53,8 @@ function App() {
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/blog/edit/:id" element={<BlogDetail />} />
           <Route path="/blog/delete/:id" element={<BlogDetail />} />
+
+          <Route path="/tips-tricks" element={<TipsAndTricks />} />
 
         </Routes>
         <Footer />

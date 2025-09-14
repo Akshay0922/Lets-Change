@@ -26,12 +26,11 @@ export const Blog = () => {
       <h1 className="blog-title">Our Blog</h1>
       <p className="blog-subtitle">Latest articles and updates</p>
 
-      {/* Add Blog Button */}
       <button
         className="add-blog-btn"
         onClick={() => navigate("/add-blog")}
       >
-        Add Blog
+        + Add Blog
       </button>
 
       <div className="blog-grid">
@@ -52,17 +51,16 @@ export const Blog = () => {
                 ? blog.content.substring(0, 100) + "..."
                 : blog.content}
             </p>
-            <Link to={`/blog/${blog._id}`} className="read-more">
-              Read More →
+            <Link to={`/blog/${blog._id}`} className="blog-read-more">
+              Read More
             </Link>
 
-            {/* ✏️ Edit & 🗑 Delete Buttons */}
             <div className="blog-actions">
-              <Link to={`/blog/edit/${blog._id}`} className="edit-btn">
-                ✏️ Edit
+              <Link to={`/blog/edit/${blog._id}`} className="blog-edit-btn">
+                Edit
               </Link>
               <button
-                className="delete-btn"
+                className="blog-delete-btn"
                 onClick={async () => {
                   if (window.confirm("Delete this blog?")) {
                     await axios.delete(
@@ -72,7 +70,7 @@ export const Blog = () => {
                   }
                 }}
               >
-                🗑 Delete
+                Delete
               </button>
             </div>
           </div>

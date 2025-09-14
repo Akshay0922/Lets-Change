@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BackBtn } from "../../../components/backBtn/BackBtn";
-import "../blog.css";
+import "./blogDetail.css";
 
 export const BlogDetail = () => {
   const { id } = useParams();
@@ -29,10 +29,10 @@ export const BlogDetail = () => {
       <img
         src={blog.img ? `http://localhost:2209${blog.img}` : "https://via.placeholder.com/300"}
         alt={blog.title}
-        className="detail-img"
+        className="blog-detail-img"
       />
-      <p className="detail-text">{blog.content}</p>
-      <p className="detail-author">✍️ Written by {blog.author}</p>
+      <p className="blog-detail-text">{blog.content}</p>
+      <p className="blog-detail-author">✍️ Written by {blog.author}</p>
     </div>
   );
 };

@@ -1,0 +1,61 @@
+.add-blog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  margin-top: 25px;
+}
+
+.add-blog-form input,
+.add-blog-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #123524;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-blog-form input:focus,
+.add-blog-form textarea:focus {
+  border: 1px solid #0d2719;
+  box-shadow: 0 0 6px rgba(18, 53, 36, 0.4);
+}
+
+.add-blog-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.add-blog-btn {
+  background-color: #123524;
+  color: #fff;
+  padding: 12px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-blog-btn:hover {
+  background-color: #0d2719;
+  transform: translateY(-2px);
+}
+
+
+@media (max-width: 600px) {
+  .add-blog-form {
+    padding: 20px;
+  }
+
+  .add-blog-btn {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}

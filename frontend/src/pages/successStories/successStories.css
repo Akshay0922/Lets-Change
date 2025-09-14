@@ -23,19 +23,6 @@
   max-width: 1200px;
 }
 
-/* .story-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 25px;
-  border-radius: 18px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  transition: all 0.4s ease;
-  border: 1px solid #123524;
-  cursor: pointer;
-} */
-
-
 .story-card {
   position: relative;
   background: rgba(255, 255, 255, 0.9);
@@ -86,12 +73,13 @@
 }
 
 .story-img {
-  width: 100px;
-  height: 100px;
+  width: 111px;
+  height: 111px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
-  border: 3px solid #123524;
+  border-bottom: 4px solid #123524;
+  border-left: 4px solid #123524;
 }
 
 .story-name {

@@ -1,0 +1,32 @@
+.blog-detail-container {
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.blog-detail-container h1 {
+  font-size: 2rem;
+  color: #123524;
+  margin-bottom: 20px;
+}
+
+.blog-detail-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.blog-detail-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.blog-detail-author {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #666;
+}

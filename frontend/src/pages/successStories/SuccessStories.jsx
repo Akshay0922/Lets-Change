@@ -83,21 +83,6 @@ export const SuccessStories = () => {
                 + Add Yours
             </button>
 
-            {/* <div className="stories-grid">
-                {stories.map((story) => (
-                    <div className="story-card" key={story._id || story.id}>
-                        <img
-                            src={story.img ? `http://localhost:2209${story.img}` : "https://via.placeholder.com/100"}
-                            alt={story.name}
-                            className="story-img"
-                        />
-                        <h2 className="story-name">{story.name}</h2>
-                        <h3 className="story-role">{story.role}</h3>
-                        <p className="story-text">{story.story}</p>
-                    </div>
-                ))}
-            </div> */}
-
             <div className="stories-grid">
                 {stories.map((story) => (
                     <Link
