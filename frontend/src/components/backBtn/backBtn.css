@@ -12,7 +12,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.4s ease;
   z-index: 9999;
 }

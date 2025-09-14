@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { FaSpa, FaCut, FaBrain, FaAppleAlt, FaPrayingHands, FaSmile, FaWater, FaSeedling, FaBook, FaLightbulb, FaHandsHelping, FaGrinStars, FaUserCheck, FaShieldAlt } from "react-icons/fa";
+import { FaSpa, FaCut, FaBath } from "react-icons/fa";
 
 import "./letsChange.css";
 
@@ -14,7 +14,7 @@ export const LetsChange = () => {
   const startData = [
   { id: 1, icon: <FaSpa className="start-icon" />, title: "Facial Care", desc: "Rejuvenating treatments to keep your skin fresh, glowing, and healthy." },
   { id: 2, icon: <FaCut className="start-icon" />, title: "Hair Care", desc: "Trendy hairstyles, nourishing routines, and tips for strong, shiny hair." },
-  { id: 3, icon: <FaBrain className="start-icon" />, title: "Mental Wellness", desc: "Mindfulness practices, stress management, and emotional balance." }
+  { id: 3, icon: <FaBath className="start-icon" />, title: "Body Care", desc: "Relaxing body treatments, scrubs, hydration, and massages for smooth, radiant skin." }
 ];
 
   return (
