@@ -16,6 +16,8 @@ import { fileURLToPath } from "url";
 
 import blogRoutes from "./routes/blogRoutes.js";
 
+import aiRoutes from "./routes/aiRoutes.js";
+
 // Middleware
 app.use(express.json());
 
@@ -37,6 +39,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/payment", paymentRoutes);
 
 app.use("/api/blogs", blogRoutes);
+
+app.use("/api/ai", aiRoutes);
 
 // Contact form route
 app.post("/api/contact", async (req, res) => {
