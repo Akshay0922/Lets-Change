@@ -3,7 +3,6 @@ import multer from "multer";
 import SuccessStory from "../models/SuccessStory.js";
 import path from "path";
 import fs from "fs";
-import { authMiddleware } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -43,7 +42,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", authMiddleware, upload.single("img"), async (req, res) => {
+router.post("/", upload.single("img"), async (req, res) => {
   try {
     const { name, role, story } = req.body;
     const img = req.file ? `/uploads/${req.file.filename}` : "";
@@ -56,7 +55,7 @@ router.post("/", authMiddleware, upload.single("img"), async (req, res) => {
   }
 });
 
-router.put("/:id", authMiddleware, upload.single("img"), async (req, res) => {
+router.put("/:id", upload.single("img"), async (req, res) => {
   try {
     const { name, role, story } = req.body;
 
@@ -80,7 +79,7 @@ router.put("/:id", authMiddleware, upload.single("img"), async (req, res) => {
   }
 });
 
-router.delete("/:id", authMiddleware, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const story = await SuccessStory.findByIdAndDelete(req.params.id);
     if (!story) return res.status(404).json({ error: "Story not found" });

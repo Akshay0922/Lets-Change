@@ -2,7 +2,6 @@ import express from "express";
 import multer from "multer";
 import path from "path";
 import Blog from "../models/Blog.js";
-import { authMiddleware } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -13,7 +12,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-router.post("/", authMiddleware, upload.single("img"), async (req, res) => {
+router.post("/", upload.single("img"), async (req, res) => {
   try {
     const blog = new Blog({
       title: req.body.title,
@@ -46,7 +45,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", authMiddleware, upload.single("img"), async (req, res) => {
+router.put("/:id", upload.single("img"), async (req, res) => {
   try {
     const updatedData = {
       title: req.body.title,
@@ -74,7 +73,7 @@ router.put("/:id", authMiddleware, upload.single("img"), async (req, res) => {
   }
 });
 
-router.delete("/:id", authMiddleware, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     await Blog.findByIdAndDelete(req.params.id);
     res.json({ message: "Blog deleted successfully" });

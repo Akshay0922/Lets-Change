@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import Groq from "groq-sdk";
-import { authMiddleware } from "../middleware/authMiddleware.js";
 
 dotenv.config();
 const router = express.Router();
@@ -10,7 +9,7 @@ const client = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-router.post("/summarize", authMiddleware, async (req, res) => {
+router.post("/summarize", async (req, res) => {
   try {
     const { content } = req.body;
 
@@ -34,7 +33,7 @@ router.post("/summarize", authMiddleware, async (req, res) => {
   }
 });
 
-router.post("/recommend", authMiddleware, async (req, res) => {
+router.post("/recommend", async (req, res) => {
   try {
     const { content } = req.body;
 
