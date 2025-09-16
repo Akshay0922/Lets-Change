@@ -62,12 +62,28 @@ export const Header = () => {
 
         {showDropdown && (
           <div className="dropdown-menu">
-            <span className="dropdown-link" onClick={openLogin}>
-              Login
-            </span>
-            <span className="dropdown-link" onClick={openSignup}>
-              Sign Up
-            </span>
+            {localStorage.getItem("token") ? (
+              <span
+                className="dropdown-link"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  localStorage.removeItem("user");
+                  // window.location.reload();
+                  openLogin();
+                }}
+              >
+                Logout
+              </span>
+            ) : (
+              <>
+                <span className="dropdown-link" onClick={openLogin}>
+                  Login
+                </span>
+                <span className="dropdown-link" onClick={openSignup}>
+                  Sign Up
+                </span>
+              </>
+            )}
           </div>
         )}
       </div>

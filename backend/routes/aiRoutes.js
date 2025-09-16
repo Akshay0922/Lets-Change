@@ -1,6 +1,89 @@
+// import express from "express";
+// import dotenv from "dotenv";
+// import Groq from "groq-sdk";
+
+// dotenv.config();
+// const router = express.Router();
+
+// const client = new Groq({
+//   apiKey: process.env.GROQ_API_KEY,
+// });
+
+// // ✅ Blog Summarizer
+// router.post("/summarize", async (req, res) => {
+//   try {
+//     const { content } = req.body;
+
+//     const response = await client.chat.completions.create({
+//       model: "llama-3.1-8b-instant",
+//       messages: [
+//         {
+//           role: "system",
+//           content: "You are an assistant that summarizes blogs into 3-4 clear lines."
+//         },
+//         { role: "user", content }
+//       ],
+//       max_tokens: 120,
+//     });
+
+//     const summary = response.choices[0].message.content;
+//     res.json({ summary });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ error: "❌ Failed to summarize blog with Groq" });
+//   }
+// });
+
+// // ✅ Smart Recommendations
+// router.post("/recommend", async (req, res) => {
+//   try {
+//     const { content } = req.body;
+
+//     const response = await client.chat.completions.create({
+//       model: "llama-3.3-70b-versatile", // Better for reasoning & recommendations
+//       messages: [
+//         {
+//           role: "system",
+//           content:
+//             "You are an AI assistant that recommends 3-4 similar blogs or success stories based on the given text."
+//         },
+//         { role: "user", content }
+//       ],
+//       max_tokens: 200,
+//     });
+
+//     const recommendations = response.choices[0].message.content;
+//     res.json({ recommendations });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ error: "❌ Failed to fetch recommendations" });
+//   }
+// });
+
+// export default router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import express from "express";
 import dotenv from "dotenv";
 import Groq from "groq-sdk";
+import { authMiddleware } from "../middleware/authMiddleware.js";  // ✅ import
 
 dotenv.config();
 const router = express.Router();
@@ -9,8 +92,8 @@ const client = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-// ✅ Blog Summarizer
-router.post("/summarize", async (req, res) => {
+// ✅ Blog Summarizer (Protected)
+router.post("/summarize", authMiddleware, async (req, res) => {
   try {
     const { content } = req.body;
 
@@ -26,7 +109,7 @@ router.post("/summarize", async (req, res) => {
       max_tokens: 120,
     });
 
-    const summary = response.choices[0].message.content;
+    const summary = response.choices[0]?.message?.content?.trim();
     res.json({ summary });
   } catch (err) {
     console.error(err);
@@ -34,13 +117,13 @@ router.post("/summarize", async (req, res) => {
   }
 });
 
-// ✅ Smart Recommendations
-router.post("/recommend", async (req, res) => {
+// ✅ Smart Recommendations (Protected)
+router.post("/recommend", authMiddleware, async (req, res) => {
   try {
     const { content } = req.body;
 
     const response = await client.chat.completions.create({
-      model: "llama-3.3-70b-versatile", // Better for reasoning & recommendations
+      model: "llama-3.3-70b-versatile",
       messages: [
         {
           role: "system",
@@ -52,7 +135,7 @@ router.post("/recommend", async (req, res) => {
       max_tokens: 200,
     });
 
-    const recommendations = response.choices[0].message.content;
+    const recommendations = response.choices[0]?.message?.content?.trim();
     res.json({ recommendations });
   } catch (err) {
     console.error(err);

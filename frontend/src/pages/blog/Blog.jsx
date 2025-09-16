@@ -47,8 +47,8 @@ export const Blog = () => {
             />
             <h2 className="blog-name">{blog.title}</h2>
             <p className="blog-excerpt">
-              {blog.content.length > 100
-                ? blog.content.substring(0, 100) + "..."
+              {blog.content.length > 79
+                ? blog.content.substring(0, 79) + "..."
                 : blog.content}
             </p>
             <Link to={`/blog/${blog._id}`} className="blog-read-more">

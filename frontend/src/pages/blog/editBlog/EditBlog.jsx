@@ -13,10 +13,14 @@ export const EditBlog = () => {
 
   useEffect(() => {
     const fetchBlog = async () => {
-      const res = await axios.get(`http://localhost:2209/api/blogs/${id}`);
-      setTitle(res.data.title);
-      setContent(res.data.content);
-      setAuthor(res.data.author);
+      try {
+        const res = await axios.get(`http://localhost:2209/api/blogs/${id}`);
+        setTitle(res.data.title);
+        setContent(res.data.content);
+        setAuthor(res.data.author);
+      } catch (err) {
+        console.error("Error fetching blog:", err);
+      }
     };
     fetchBlog();
   }, [id]);
@@ -30,14 +34,14 @@ export const EditBlog = () => {
       formData.append("author", author);
       if (img) formData.append("img", img);
 
-      await axios.put(`http://localhost:2209/api/blogs/${id}`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      console.log("Sending update:", { title, content, author, img });
+
+      await axios.put(`http://localhost:2209/api/blogs/${id}`, formData);
 
       alert("✅ Blog updated successfully!");
-      navigate("/blogs");
+      navigate("/blog");
     } catch (err) {
-      console.error(err);
+      console.error("Update failed:", err);
       alert("❌ Failed to update blog.");
     }
   };
@@ -47,11 +51,31 @@ export const EditBlog = () => {
       <BackBtn />
       <h1>Edit Blog</h1>
       <form onSubmit={handleUpdate} className="add-blog-form">
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
-        <textarea value={content} onChange={(e) => setContent(e.target.value)} required></textarea>
-        <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-        <input type="file" onChange={(e) => setImg(e.target.files[0])} accept="image/*" />
-        <button type="submit" className="add-blog-btn">Update Blog</button>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+        <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
+        ></textarea>
+        <input
+          type="text"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+          required
+        />
+        <input
+          type="file"
+          onChange={(e) => setImg(e.target.files[0])}
+          accept="image/*"
+        />
+        <button type="submit" className="add-blog-btn">
+          Update Blog
+        </button>
       </form>
     </div>
   );
