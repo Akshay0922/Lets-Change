@@ -93,28 +93,60 @@ export const ChangeDetail = () => {
   );
 
   const handlePayment = async (product) => {
-    if (isPaying) return;
-    setIsPaying(true);
+  if (isPaying) return;
+  setIsPaying(true);
 
-    try {
-      const res = await fetch("http://localhost:2209/api/payment/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product }),
-      });
+  try {
+    const token = localStorage.getItem("token"); // example
+    const res = await fetch("http://localhost:2209/api/payment/create-checkout-session", {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({ 
+        product: {
+          name: product.name,
+          price: Number(product.price) // ensure it’s numeric
+        }
+      }),
+    });
 
-      if (!res.ok) throw new Error("Failed to create checkout session");
+    if (!res.ok) throw new Error("Failed to create checkout session");
 
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Payment failed: " + err.message);
-      setIsPaying(false);
-    }
-  };
+    const data = await res.json();
+    if (data.url) window.location.href = data.url;
+  } catch (err) {
+    console.error(err);
+    alert("Payment failed: " + err.message);
+    setIsPaying(false);
+  }
+};
+
+
+  // const handlePayment = async (product) => {
+  //   if (isPaying) return;
+  //   setIsPaying(true);
+
+  //   try {
+  //     const res = await fetch("http://localhost:2209/api/payment/create-checkout-session", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ product }),
+  //     });
+
+  //     if (!res.ok) throw new Error("Failed to create checkout session");
+
+  //     const data = await res.json();
+  //     if (data.url) {
+  //       window.location.href = data.url;
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("Payment failed: " + err.message);
+  //     setIsPaying(false);
+  //   }
+  // };
 
   const renderProducts = (products) => (
     <div className="section-cards products-grid">

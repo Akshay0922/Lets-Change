@@ -22,6 +22,8 @@ export const Success = () => {
             try {
                 const res = await fetch(`http://localhost:2209/api/payment/session/${sessionId}`);
                 const data = await res.json();
+                console.log("Fetched session data:", data);
+
 
                 if (data.error) throw new Error(data.error);
 

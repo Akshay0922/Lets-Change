@@ -3,22 +3,18 @@ dotenv.config();
 
 import express from "express";
 import Stripe from "stripe";
-import { authMiddleware } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET);
 
-router.post("/create-checkout-session", authMiddleware, async (req, res) => {
+router.post("/create-checkout-session", async (req, res) => {
   const { product } = req.body;
-
-  console.log("Received product:", product);
 
   if (!product || !product.name || !product.price) {
     return res.status(400).json({ error: "Invalid product data" });
   }
 
   const priceInPaise = Math.round(Number(product.price) * 100);
-
   if (isNaN(priceInPaise) || priceInPaise <= 0) {
     return res.status(400).json({ error: "Invalid price value" });
   }
@@ -40,8 +36,7 @@ router.post("/create-checkout-session", authMiddleware, async (req, res) => {
       success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin}/canceled`,
       metadata: {
-        userId: req.user.id,
-        email: req.user.email,
+        productName: product.name,
       },
     });
 
@@ -52,17 +47,16 @@ router.post("/create-checkout-session", authMiddleware, async (req, res) => {
   }
 });
 
-router.get("/session/:id", authMiddleware, async (req, res) => {
+router.get("/session/:id", async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.retrieve(req.params.id, {
       expand: ["line_items", "customer"],
     });
 
     res.json({
-      customer_email: session.customer_details.email,
-      product: session.line_items.data[0].description,
+      customer_email: session.customer_details?.email || "—",
+      product: session.metadata?.productName || "Product",
       amount: session.amount_total,
-      paid_by: req.user.email,
     });
   } catch (err) {
     console.error("Stripe Session Error:", err.message);
