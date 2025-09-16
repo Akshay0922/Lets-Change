@@ -17,6 +17,7 @@ import { fileURLToPath } from "url";
 import blogRoutes from "./routes/blogRoutes.js";
 
 import aiRoutes from "./routes/aiRoutes.js";
+import profileRoutes from "./routes/profileRoutes.js";
 
 // Middleware
 app.use(express.json());
@@ -36,6 +37,7 @@ app.use("/api/success-stories", successStoriesRoutes);
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/profile", profileRoutes);
 app.use("/api/payment", paymentRoutes);
 
 app.use("/api/blogs", blogRoutes);

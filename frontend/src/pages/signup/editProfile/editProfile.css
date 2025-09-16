@@ -1,0 +1,211 @@
+/* ================== Page & Container ================== */
+.edit-profile-page{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-profile-container {
+  width: 400px;
+  height: 86vh;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 555px;
+  padding: 0 31px 31px 31px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border: 1px solid #123524;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.edit-profile-form h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #123524;
+  margin-bottom: 0;
+}
+
+/* ================== Input Box ================== */
+.edit-profile-input-box {
+  position: relative;
+  width: 315px;
+}
+
+.edit-profile-input-box input {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 0 11px;
+  font-size: 15px;
+  color: #123524;
+  outline: none;
+  transition: 0.3s;
+}
+
+.edit-profile-input-box input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border: 1px solid #123524;
+  box-shadow: 0 0 6px #123524;
+}
+
+.edit-profile-input-box label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #123524;
+  font-size: 15px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.edit-profile-input-box input:focus + label,
+.edit-profile-input-box input:valid + label {
+  top: -11px;
+  left: 0;
+  font-size: 11px;
+  font-weight: 500;
+  color: #123524;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* ================== Error Message ================== */
+.edit-profile-error {
+  color: #ff6b6b;
+  font-size: 9px;
+  margin-top: -15px;
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+/* ================== Password Toggle ================== */
+.edit-profile-password-wrapper {
+  position: relative;
+}
+
+.edit-profile-toggle-eye {
+  position: absolute;
+  right: 31px;
+  top: 60%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #123524;
+  font-size: 18px;
+}
+
+/* ================== Password Strength ================== */
+.edit-profile-strength-inside {
+  position: absolute;
+  right: 41px;
+  bottom: 8px;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 520px;
+  background-color: black;
+}
+.edit-profile-strength-inside.weak { color: red; }
+.edit-profile-strength-inside.medium { color: #ffb84d; }
+.edit-profile-strength-inside.strong { color: #4dff88; }
+
+/* ================== Submit Button ================== */
+.edit-profile-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+.edit-profile-submit-btn {
+  width: 36%;
+  padding: 8px 0;
+  border: none;
+  border-radius: 0 11px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background: #123524;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-profile-submit-btn:hover {
+  transform: scale(0.96);
+}
+
+.edit-profile-submit-btn:active {
+  transform: scale(0.93);
+}
+
+.edit-profile-spinner {
+  font-size: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* ================== Profile Picture Upload ================== */
+.edit-profile-upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.edit-profile-avatar-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.edit-profile-avatar-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #123524;
+}
+
+#profilePic {
+  display: none;
+}
+
+.edit-profile-camera-label {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #123524;
+  color: #fff;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.edit-profile-camera-label:hover {
+  background: #0e2e1c;
+}
+
+.edit-profile-camera-icon {
+  font-size: 16px;
+}

@@ -93,6 +93,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { ScrollToTop } from './components/scrollToTop/ScrollToTop';
 
+import { LoginForm } from './pages/login/LoginForm';
+import { SignupForm } from './pages/signup/SignupForm';
+import { EditProfile } from './pages/signup/editProfile/EditProfile';
+
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 
@@ -128,10 +132,18 @@ function App() {
         <Header />
         <Routes>
           {/* Public Routes */}
-          <Route path="/login" element={<h1>Login Page</h1>} />
-          <Route path="/signup" element={<h1>Signup Page</h1>} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
 
           {/* Protected Routes */}
+          <Route
+            path="/edit-profile"
+            element={
+              <ProtectedRoute>
+                <EditProfile />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/"
             element={
