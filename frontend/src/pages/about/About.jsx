@@ -53,7 +53,6 @@ export const About = () => {
 
       </section>
 
-      {/* About Me + Social Links Section */}
       <section className="about-me">
         <h2 className="about-me-heading">About Me</h2>
         <p className="about-me-text">

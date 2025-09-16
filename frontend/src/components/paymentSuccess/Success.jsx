@@ -48,7 +48,6 @@ export const Success = () => {
 
         const pageWidth = doc.internal.pageSize.getWidth();
 
-        // Add Logo
         if (logoImg) {
             const img = new Image();
             img.src = logoImg;
@@ -58,7 +57,6 @@ export const Success = () => {
                 const centerX = pageWidth / 2 - logoWidth / 2;
                 doc.addImage(img, "PNG", centerX, y, logoWidth, logoHeight);
 
-                // Company Name below Logo
                 y += logoHeight + 10;
                 doc.setFontSize(16);
                 doc.setFont("helvetica", "bold");
@@ -80,7 +78,6 @@ export const Success = () => {
         let y = startY;
         const pageWidth = doc.internal.pageSize.getWidth();
 
-        // Invoice Title
         doc.setFontSize(26);
         doc.setFont("helvetica", "bold");
         y += 60;
@@ -88,21 +85,18 @@ export const Success = () => {
 
         y += 40;
 
-        // Company Info (left)
         doc.setFontSize(11);
         doc.setFont("helvetica", "normal");
         doc.text(`Email: support@letschange.com`, margin, y);
         doc.text(`Phone: +91 9896120216`, margin, y + 15);
         doc.text(`Date: ${new Date().toLocaleDateString()}`, margin, y + 30);
 
-        // Invoice Meta (right)
-        const rightX = pageWidth - margin - 150; // adjust to avoid cutting
+        const rightX = pageWidth - margin - 150;
         doc.text(`Invoice ID: ${Math.floor(Math.random() * 1000000)}`, rightX, y);
         doc.text(`Customer: ${data.customer_email || "—"}`, rightX, y + 20);
 
         y += 70;
 
-        // Table Header
         doc.setFontSize(12);
         doc.setFont("helvetica", "bold");
         doc.text("Item", margin, y);
@@ -110,13 +104,11 @@ export const Success = () => {
         doc.text("Price", 420, y);
         doc.text("Total", 500, y);
 
-        // Divider line
         y += 5;
         doc.setLineWidth(0.8);
         doc.line(margin, y, pageWidth - margin, y);
         y += 15;
 
-        // Line Item
         doc.setFont("helvetica", "normal");
         const item = data.product || "Product";
         const qty = 1;
@@ -130,11 +122,9 @@ export const Success = () => {
 
         y += 25;
 
-        // Divider line
         doc.setLineWidth(0.8);
         doc.line(margin, y, pageWidth - margin, y);
 
-        // Total section
         y += 20;
         doc.setFont("helvetica", "bold");
         doc.text("Subtotal:", 420, y);
@@ -148,7 +138,6 @@ export const Success = () => {
         doc.text("Total:", 420, y);
         doc.text(total.toFixed(2), 500, y);
 
-        // Footer
         y += 60;
         doc.setFontSize(12);
         doc.setFont("helvetica", "bold");
@@ -175,7 +164,6 @@ export const Success = () => {
                         </div>
 
                         <div className="success-body">
-                            {/* <p className="lead">Thank you for your purchase.</p> */}
 
                             <div className="info-grid">
                                 <div>

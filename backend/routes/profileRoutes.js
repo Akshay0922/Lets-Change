@@ -7,14 +7,12 @@ import path from "path";
 
 const router = express.Router();
 
-// Multer setup for file upload
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "uploads/"),
   filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname))
 });
 const upload = multer({ storage });
 
-// GET current user profile
 router.get("/me", authMiddleware, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
@@ -26,7 +24,6 @@ router.get("/me", authMiddleware, async (req, res) => {
   }
 });
 
-// UPDATE profile
 router.put("/me", authMiddleware, upload.single("profilePic"), async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
@@ -41,7 +38,7 @@ router.put("/me", authMiddleware, upload.single("profilePic"), async (req, res) 
 
     await user.save();
 
-    const { password: pw, ...userData } = user.toObject(); // hide password
+    const { password: pw, ...userData } = user.toObject();
     res.json({ message: "Profile updated successfully", user: userData });
   } catch (err) {
     console.error(err);

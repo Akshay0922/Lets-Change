@@ -19,23 +19,17 @@ import blogRoutes from "./routes/blogRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 
-// Middleware
 app.use(express.json());
 
-// app.use(cors());
 app.use(cors({ origin: "http://localhost:5173" }));
 
-// For __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// Success Stories API
 app.use("/api/success-stories", successStoriesRoutes);
 
-// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/payment", paymentRoutes);
@@ -44,7 +38,6 @@ app.use("/api/blogs", blogRoutes);
 
 app.use("/api/ai", aiRoutes);
 
-// Contact form route
 app.post("/api/contact", async (req, res) => {
   const { name, email, subject, message } = req.body;
 
@@ -99,7 +92,6 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-// DB connect
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB Connected ✅"))
   .catch(err => console.error(err));

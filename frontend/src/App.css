@@ -1,4 +1,3 @@
-/* Background Color */
 .main-app-screen {
   background: linear-gradient(135deg,
       #d1fae5 0%,
@@ -8,7 +7,6 @@
       #10b981 100%);
 }
 
-/* To remove extra space */
 html,
 body {
   margin: 0;

@@ -16,7 +16,6 @@ export const SuccessStories = () => {
     });
     const [preview, setPreview] = useState(null);
 
-    // Fetch stories from backend
     useEffect(() => {
         const fetchStories = async () => {
             try {
@@ -100,7 +99,6 @@ export const SuccessStories = () => {
                             {story.story.length > 60 ? story.story.slice(0, 66) + "..." : story.story}
                         </p>
 
-                        {/* Hover overlay */}
                         <div className="story-overlay">Click to Read</div>
                     </Link>
                 ))}
@@ -130,7 +128,6 @@ export const SuccessStories = () => {
                             />
                             <input type="file" name="imgFile" accept="image/*" onChange={handleChange} />
 
-                            {/* Image Preview */}
                             {preview && (
                                 <img src={preview} alt="Preview" className="preview-img" />
                             )}

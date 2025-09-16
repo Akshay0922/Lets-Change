@@ -190,9 +190,6 @@
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* RESPONSIVE MEDIA QUERIES */
-
-/* Tablets */
 @media (max-width: 1024px) {
   .signup-container {
     width: 350px;
@@ -215,7 +212,6 @@
   }
 }
 
-/* Small tablets / large phones */
 @media (max-width: 768px) {
   .signup-container {
     width: 100%;
@@ -258,7 +254,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
   .signup-container {
     width: 100%;

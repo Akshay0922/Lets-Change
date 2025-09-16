@@ -4,7 +4,7 @@ const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
   content: { type: String, required: true },
   author: { type: String, required: true },
-  img: { type: String }, // optional image
+  img: { type: String },
 }, { timestamps: true });
 
 export default mongoose.model("Blog", blogSchema);

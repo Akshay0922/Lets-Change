@@ -39,13 +39,11 @@ export const LoginForm = () => {
           toast.success("Login successful! Welcome back.");
           resetForm();
 
-          // ✅ save token and user in localStorage
           localStorage.setItem("token", data.token);
           localStorage.setItem("user", JSON.stringify(data.user));
 
           console.log("User:", data.user);
 
-          // ✅ Navigate to homepage (or dashboard) after login
           setTimeout(() => {
             navigate("/");
           }, 1500);
@@ -67,7 +65,6 @@ export const LoginForm = () => {
         <form onSubmit={formik.handleSubmit} className="login-form">
           <h2>LOGIN</h2>
 
-          {/* Email */}
           <div className="input-box">
             <input
               type="email"
@@ -83,7 +80,6 @@ export const LoginForm = () => {
             {formik.touched.email && formik.errors.email ? formik.errors.email : ""}
           </div>
 
-          {/* Password */}
           <div className="password-wrapper">
             <div className="input-box">
               <input
@@ -109,7 +105,6 @@ export const LoginForm = () => {
               : ""}
           </div>
 
-          {/* Submit Button + Signup Redirect */}
           <div className="submit-row">
             <button type="submit" className="submit-btn" disabled={loading}>
               {loading ? (

@@ -19,7 +19,6 @@ export const Home = () => {
         <>
             <section className='home-screen'>
 
-                {/* Hero Section */}
                 <div className='home-hero-section'>
                     <div className='home-hero-container'>
                         <span className='home-main-heading'>
@@ -38,7 +37,6 @@ export const Home = () => {
                     </div>
                 </div>
 
-                {/* About Section */}
                 <div className="home-about-section">
                     <div className="home-about-content">
                         <h2 className="about-section-heading">About Us</h2>
@@ -60,7 +58,6 @@ export const Home = () => {
                     </div>
                 </div>
 
-                {/* Contact Section */}
                 <div className="home-contact-section">
                     <div className="home-contact-icon-container">
                         <FaEnvelopeOpenText className="home-contact-icon" />
@@ -81,7 +78,6 @@ export const Home = () => {
                     </div>
                 </div>
 
-                {/* Main Services Section */}
                 <div className="home-services-section">
                     <h2 className="services-heading">Our Main Services</h2>
                     <div className="services-cards">

@@ -329,12 +329,7 @@
     transform: translateY(-6px);
 }
 
-
-/* ====== Media Queries for Responsive ====== */
-
-/* Large tablets / smaller laptops */
 @media (max-width: 992px) {
-    /* Hero section */
     .home-hero-section {
         flex-direction: column;
         height: auto;
@@ -369,7 +364,6 @@
         align-self: center;
     }
 
-    /* About section */
     .home-about-section,
     .home-contact-section {
         flex-direction: column;
@@ -402,9 +396,7 @@
     }
 }
 
-/* Small devices / mobiles */
 @media (max-width: 576px) {
-    /* Hero section */
     .home-main-heading {
         font-size: 2.5rem;
     }
@@ -419,7 +411,6 @@
         font-size: 0.9rem;
     }
 
-    /* About & Contact stacked order */
     .home-about-icon,
     .home-contact-icon {
         font-size: 6rem;
@@ -441,7 +432,6 @@
         font-size: 0.9rem;
     }
 
-    /* Services section heading & cards */
     .services-heading {
         font-size: 2rem;
     }

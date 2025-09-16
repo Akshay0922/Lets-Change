@@ -65,9 +65,8 @@ export const SignupForm = () => {
             localStorage.setItem("user", JSON.stringify(data.user));
           }
 
-          // ✅ Navigate to login page after signup
           setTimeout(() => {
-            navigate("/login");
+            navigate("/");
           }, 1500);
         } else {
           toast.error(data.message || "Signup failed");
@@ -91,7 +90,6 @@ export const SignupForm = () => {
         <form onSubmit={formik.handleSubmit} className="signup-form">
           <h2>SIGN UP</h2>
 
-          {/* Full Name */}
           <div className="input-box">
             <input
               type="text"
@@ -107,7 +105,6 @@ export const SignupForm = () => {
             {formik.touched.name && formik.errors.name ? formik.errors.name : ""}
           </div>
 
-          {/* Email */}
           <div className="input-box">
             <input
               type="email"
@@ -123,7 +120,6 @@ export const SignupForm = () => {
             {formik.touched.email && formik.errors.email ? formik.errors.email : ""}
           </div>
 
-          {/* Place */}
           <div className="input-box">
             <input
               type="text"
@@ -139,7 +135,6 @@ export const SignupForm = () => {
             {formik.touched.place && formik.errors.place ? formik.errors.place : ""}
           </div>
 
-          {/* Password */}
           <div className="password-wrapper">
             <div className="input-box">
               <input
@@ -172,7 +167,6 @@ export const SignupForm = () => {
               : ""}
           </div>
 
-          {/* Confirm Password */}
           <div className="password-wrapper">
             <div className="input-box">
               <input
@@ -198,7 +192,6 @@ export const SignupForm = () => {
               : ""}
           </div>
 
-          {/* Submit + Redirect to Login */}
           <div className="submit-row">
             <button type="submit" className="submit-btn" disabled={loading}>
               {loading ? (

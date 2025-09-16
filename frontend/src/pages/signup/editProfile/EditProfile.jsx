@@ -77,7 +77,6 @@ export const EditProfile = () => {
         <form onSubmit={formik.handleSubmit} className="edit-profile-form">
           <h2>Edit Profile</h2>
 
-          {/* Profile Pic */}
           <div className="edit-profile-upload-wrapper">
             <div className="edit-profile-avatar-container">
               <img
@@ -102,7 +101,6 @@ export const EditProfile = () => {
             />
           </div>
 
-          {/* Full Name */}
           <div className="edit-profile-input-box">
             <input
               type="text"
@@ -118,7 +116,6 @@ export const EditProfile = () => {
             {formik.touched.name && formik.errors.name ? formik.errors.name : ""}
           </div>
 
-          {/* Email */}
           <div className="edit-profile-input-box">
             <input
               type="email"
@@ -134,7 +131,6 @@ export const EditProfile = () => {
             {formik.touched.email && formik.errors.email ? formik.errors.email : ""}
           </div>
 
-          {/* Place */}
           <div className="edit-profile-input-box">
             <input
               type="text"
@@ -150,7 +146,6 @@ export const EditProfile = () => {
             {formik.touched.place && formik.errors.place ? formik.errors.place : ""}
           </div>
 
-          {/* Password */}
           <div className="edit-profile-password-wrapper">
             <div className="edit-profile-input-box">
               <input
@@ -175,7 +170,6 @@ export const EditProfile = () => {
               : ""}
           </div>
 
-          {/* Submit */}
           <div className="edit-profile-submit-row">
             <button
               type="submit"
