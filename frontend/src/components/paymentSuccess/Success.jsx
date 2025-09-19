@@ -92,7 +92,7 @@ export const Success = () => {
     doc.text(`Phone: +91 9896120216`, margin, y + 15);
     doc.text(`Date: ${new Date().toLocaleDateString()}`, margin, y + 30);
 
-    const rightX = pageWidth - margin - 150;
+    const rightX = pageWidth - margin - 200;
     doc.text(`Invoice ID: ${Math.floor(Math.random() * 1000000)}`, rightX, y);
     doc.text(`Customer: ${data.customer_email || "—"}`, rightX, y + 20);
 

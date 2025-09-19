@@ -76,7 +76,7 @@ export const ForgotPassword = () => {
           </div>
 
           <div className="submit-row">
-            <button type="submit" className="submit-btn" disabled={loading}>
+            <button type="submit" className="send-reset-link-btn" disabled={loading}>
               {loading ? (
                 <AiOutlineLoading3Quarters className="spinner" />
               ) : (
