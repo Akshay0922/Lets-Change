@@ -18,6 +18,7 @@ import { ContactUs } from './pages/contactUs/ContactUs';
 
 import { LetsChange } from './pages/letsChange/LetsChange';
 import { ChangeDetail } from "./pages/letsChange/changeDetail/ChangeDetail";
+import { CartPage } from './pages/letsChange/changeDetail/cartPage/cartPage';
 import { Success } from "./components/paymentSuccess/Success";
 
 import { SuccessStories } from './pages/successStories/SuccessStories';
@@ -93,6 +94,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <ChangeDetail />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <CartPage />
               </ProtectedRoute>
             }
           />

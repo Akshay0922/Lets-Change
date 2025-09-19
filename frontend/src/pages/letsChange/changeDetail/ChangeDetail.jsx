@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { changeData } from "./ChangeData";
-
-import {BackBtn} from '../../../components/backBtn/BackBtn';
+import { BackBtn } from "../../../components/backBtn/BackBtn";
 
 import "./changeDetail.css";
 
@@ -11,7 +10,37 @@ export const ChangeDetail = () => {
   const data = changeData[id];
   const [activeTab, setActiveTab] = useState("homeRemedies");
   const [activeCard, setActiveCard] = useState(null);
-  const [isPaying, setIsPaying] = useState(false);
+
+  const [payingId, setPayingId] = useState(null);
+
+  const [cart, setCart] = useState([]);
+
+  const [addedItems, setAddedItems] = useState([]);
+
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem("cart") || "[]");
+      setCart(saved);
+      setAddedItems(saved.map(p => p.id));
+    } catch {
+      setCart([]);
+      setAddedItems([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem("cart") || "[]");
+      setCart(saved);
+    } catch {
+      setCart([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   if (!data) {
     return (
@@ -21,7 +50,7 @@ export const ChangeDetail = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "70vh",
-          fontFamily: "'Poppins', sans-serif"
+          fontFamily: "'Poppins', sans-serif",
         }}
       >
         <h2
@@ -92,80 +121,112 @@ export const ChangeDetail = () => {
     </div>
   );
 
-  const handlePayment = async (product) => {
-  if (isPaying) return;
-  setIsPaying(true);
+  const handlePayment = async (productId, product) => {
+    if (payingId !== null) return;
+    setPayingId(productId);
 
-  try {
-    const token = localStorage.getItem("token"); // example
-    const res = await fetch("http://localhost:2209/api/payment/create-checkout-session", {
-      method: "POST",
-      headers: { 
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      body: JSON.stringify({ 
-        product: {
+    try {
+      const token = localStorage.getItem("token");
+
+      const res = await fetch("http://localhost:2209/api/payment/buy-now", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token ? `Bearer ${token}` : undefined,
+        },
+        body: JSON.stringify({
+          product: {
+            name: product.name,
+            price: Number(product.price),
+          },
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed to create checkout session");
+
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error("Checkout URL not returned");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Payment failed: " + err.message);
+      setPayingId(null);
+    }
+  };
+
+  const addToCart = (productId, product) => {
+    setCart((prev) => {
+      const exists = prev.find((p) => p.id === productId);
+      if (exists) return prev;
+      setAddedItems((prevAdded) => [...prevAdded, productId]);
+      return [
+        ...prev,
+        {
+          id: productId,
           name: product.name,
-          price: Number(product.price) // ensure it’s numeric
-        }
-      }),
+          price: Number(product.price),
+          displayPrice: product.displayPrice || product.price,
+          qty: 1,
+          image: product.image,
+        },
+      ];
     });
-
-    if (!res.ok) throw new Error("Failed to create checkout session");
-
-    const data = await res.json();
-    if (data.url) window.location.href = data.url;
-  } catch (err) {
-    console.error(err);
-    alert("Payment failed: " + err.message);
-    setIsPaying(false);
-  }
-};
-
-
-  // const handlePayment = async (product) => {
-  //   if (isPaying) return;
-  //   setIsPaying(true);
-
-  //   try {
-  //     const res = await fetch("http://localhost:2209/api/payment/create-checkout-session", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({ product }),
-  //     });
-
-  //     if (!res.ok) throw new Error("Failed to create checkout session");
-
-  //     const data = await res.json();
-  //     if (data.url) {
-  //       window.location.href = data.url;
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert("Payment failed: " + err.message);
-  //     setIsPaying(false);
-  //   }
-  // };
+  };
 
   const renderProducts = (products) => (
     <div className="section-cards products-grid">
-      {products.map((product, idx) => (
-        <div className="product-card" key={idx}>
-          <img src={product.image} alt={product.name} />
-          <span className="product-name">{product.name}</span>
-          <span className="price">Price: {product.displayPrice}</span>
-          <button className="buy-btn" disabled={isPaying} onClick={() => handlePayment(product)}>
-            {isPaying ? "Processing..." : "Buy Now"}
-          </button>
-        </div>
-      ))}
+      {products.map((product, idx) => {
+        const pid = product.id ?? idx;
+        const isProcessing = payingId === pid;
+        return (
+          <div className="product-card" key={pid}>
+            <img src={product.image} alt={product.name} />
+            <span className="product-name">{product.name}</span>
+            <span className="price">Price: {product.displayPrice}</span>
+
+            <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
+              <button
+                className="buy-btn"
+                disabled={isProcessing}
+                onClick={() => handlePayment(pid, product)}
+              >
+                {isProcessing ? "Processing..." : "Buy Now"}
+              </button>
+
+              <button
+                className="add-cart-btn"
+                disabled={addedItems.includes(pid)}
+                onClick={() => addToCart(pid, product)}
+              >
+                {addedItems.includes(pid) ? "Item Added" : "Add to Cart"}
+              </button>
+
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
+
+  const cartCount = cart.reduce((s, it) => s + it.qty, 0);
 
   return (
     <div className="change-detail-page">
       <BackBtn />
+      {cart.length > 0 && (
+        <div className="top-actions-row">
+          <Link to="/cart" className="cart-link" title="Open Cart">
+            <span className="cart-text">Cart</span>
+            <div className="cart-count-badge">
+              <span className="cart-count">{cartCount}</span>
+            </div>
+          </Link>
+        </div>
+      )}
+
       <header className="change-header">
         <h1>
           {data.title} <span className="details-icon">{data.icon}</span>
@@ -176,7 +237,6 @@ export const ChangeDetail = () => {
       </header>
 
       <nav className="tabs">
-
         {data.homeRemedies && data.homeRemedies.length > 0 && (
           <button
             className={activeTab === "homeRemedies" ? "tab active" : "tab"}
@@ -212,11 +272,13 @@ export const ChangeDetail = () => {
             Products
           </button>
         )}
-
       </nav>
 
       <main className="tab-content animate-fade">
-        {activeTab === "homeRemedies" && (data.homeRemedies.length ? renderCards(data.homeRemedies) : <p>No remedies available</p>)}
+        {activeTab === "homeRemedies" &&
+          (data.homeRemedies.length
+            ? renderCards(data.homeRemedies)
+            : <p>No remedies available</p>)}
         {activeTab === "yoga" && renderCards(data.yoga)}
         {activeTab === "exercises" && renderCards(data.exercises)}
         {activeTab === "products" && renderProducts(data.products)}
