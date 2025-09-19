@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ScrollToTop } from './components/scrollToTop/ScrollToTop';
 
 import { LoginForm } from './pages/login/LoginForm';
+import { ForgotPassword } from './pages/login/forgotPassword/ForgotPassword';
+import { ResetPassword } from './pages/login/resetPassword/ResetPassword';
 import { SignupForm } from './pages/signup/SignupForm';
 import { EditProfile } from './pages/signup/editProfile/EditProfile';
 
@@ -46,6 +48,8 @@ function App() {
         <Routes>
           {/* Public Routes */}
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/signup" element={<SignupForm />} />
 
           {/* Protected Routes */}
