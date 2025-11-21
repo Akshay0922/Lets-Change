@@ -29,7 +29,7 @@ router.post("/summarize", async (req, res) => {
     res.json({ summary });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "❌ Failed to summarize blog with Groq" });
+    res.status(500).json({ error: "Failed to summarize blog with Groq" });
   }
 });
 
@@ -54,7 +54,7 @@ router.post("/recommend", async (req, res) => {
     res.json({ recommendations });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "❌ Failed to fetch recommendations" });
+    res.status(500).json({ error: "Failed to fetch recommendations" });
   }
 });
 
