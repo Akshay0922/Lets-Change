@@ -12,7 +12,7 @@ import FacialTurmericYogurtPack from '../../../assets/contentImages/facialCare/h
 import FacialCucumberMask from '../../../assets/contentImages/facialCare/homeRemedies/facialCucumberMask.jpg';
 
 // Yoga & Meditation
-import FacialCheekLift from '../../../assets/contentImages/facialCare/yogaAndMeditation/facialCheekLift.jpg';
+import FacialCheekLift from '../../../assets/contentImages/facialCare/yogaAndMeditation/facialcheekLift.jpg';
 import FacialJawRelease from '../../../assets/contentImages/facialCare/yogaAndMeditation/facialJawRelease.jpg';
 import FacialEyebrowLift from '../../../assets/contentImages/facialCare/yogaAndMeditation/facialEyebrowLift.jpg';
 
