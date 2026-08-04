@@ -20,7 +20,7 @@ import { ContactUs } from './pages/contactUs/ContactUs';
 
 import { LetsChange } from './pages/letsChange/LetsChange';
 import { ChangeDetail } from "./pages/letsChange/changeDetail/ChangeDetail";
-import { CartPage } from './pages/letsChange/changeDetail/cartPage/cartPage';
+import { CartPage } from './pages/letsChange/changeDetail/cartPage/CartPage';
 import { Success } from "./components/paymentSuccess/Success";
 
 import { SuccessStories } from './pages/successStories/SuccessStories';
