@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BackBtn } from "../../../components/backBtn/BackBtn";
 
-import './successStoryDetail.css';
+import './successStorydetail.css';
 
 export const SuccessStoryDetail = () => {
   const { id } = useParams();
