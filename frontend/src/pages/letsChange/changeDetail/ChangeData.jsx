@@ -58,7 +58,7 @@ import BodyCoconutOilMassage from '../../../assets/contentImages/bodyCare/homeRe
 import BodySugarAndOliveOil from '../../../assets/contentImages/bodyCare/homeRemedies/bodysugarAndOliveOil.jpg';
 
 // Yoga & Meditation
-import BodySuryaNamaskar from '../../../assets/contentImages/bodyCare/yogaAndMeditation/bodySuryaNamaskar.jpg';
+import BodySuryaNamaskar from '../../../assets/contentImages/bodyCare/yogaAndMeditation/bodysuryaNamaskar.jpg';
 import BodyBalasana from '../../../assets/contentImages/bodyCare/yogaAndMeditation/bodyBalasana.jpg';
 
 // Exercises
