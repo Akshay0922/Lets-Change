@@ -11,7 +11,10 @@ export const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:2209/api/blogs");
+        // const res = await axios.get("http://localhost:2209/api/blogs");
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/blogs`
+        );
         setBlogs(res.data);
       } catch (err) {
         console.error(err);
@@ -39,7 +42,8 @@ export const Blog = () => {
             <img
               src={
                 blog.img
-                  ? `http://localhost:2209${blog.img}`
+                  // ? `http://localhost:2209${blog.img}`
+                  ? `${import.meta.env.VITE_API_URL}${blog.img}`
                   : "https://via.placeholder.com/250"
               }
               alt={blog.title}
@@ -64,7 +68,8 @@ export const Blog = () => {
                 onClick={async () => {
                   if (window.confirm("Delete this blog?")) {
                     await axios.delete(
-                      `http://localhost:2209/api/blogs/${blog._id}`
+                      // `http://localhost:2209/api/blogs/${blog._id}`
+                      `${import.meta.env.VITE_API_URL}/api/blogs/${blog._id}`
                     );
                     setBlogs(blogs.filter((b) => b._id !== blog._id));
                   }

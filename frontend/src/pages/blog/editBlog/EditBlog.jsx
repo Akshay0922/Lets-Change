@@ -14,7 +14,10 @@ export const EditBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:2209/api/blogs/${id}`);
+        // const res = await axios.get(`http://localhost:2209/api/blogs/${id}`);
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/blogs/${id}`
+        );
         setTitle(res.data.title);
         setContent(res.data.content);
         setAuthor(res.data.author);
@@ -36,7 +39,11 @@ export const EditBlog = () => {
 
       console.log("Sending update:", { title, content, author, img });
 
-      await axios.put(`http://localhost:2209/api/blogs/${id}`, formData);
+      // await axios.put(`http://localhost:2209/api/blogs/${id}`, formData);
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/blogs/${id}`,
+        formData
+      );
 
       alert("✅ Blog updated successfully!");
       navigate("/blog");

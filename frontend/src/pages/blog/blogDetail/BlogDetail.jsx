@@ -18,7 +18,10 @@ export const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:2209/api/blogs/${id}`);
+        // const res = await axios.get(`http://localhost:2209/api/blogs/${id}`);
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/blogs/${id}`
+        );
         setBlog(res.data);
       } catch (err) {
         console.error(err);
@@ -32,9 +35,15 @@ export const BlogDetail = () => {
     setLoading(true);
     setError("");
     try {
-      const res = await axios.post("http://localhost:2209/api/ai/summarize", {
-        content: blog.content,
-      });
+      // const res = await axios.post("http://localhost:2209/api/ai/summarize", {
+      //   content: blog.content,
+      // });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/ai/summarize`,
+        {
+          content: blog.content,
+        }
+      );
       setSummary(res.data.summary);
     } catch (err) {
       console.error(err);
@@ -46,9 +55,15 @@ export const BlogDetail = () => {
   const handleRecommendations = async () => {
     setLoadingRecs(true);
     try {
-      const res = await axios.post("http://localhost:2209/api/ai/recommend", {
-        content: blog.content,
-      });
+      // const res = await axios.post("http://localhost:2209/api/ai/recommend", {
+      //   content: blog.content,
+      // });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/ai/recommend`,
+        {
+          content: blog.content,
+        }
+      );
       setRecs(res.data.recommendations.split("\n")); // split if multiple
     } catch (err) {
       console.error(err);
@@ -73,7 +88,8 @@ export const BlogDetail = () => {
       <img
         src={
           blog.img
-            ? `http://localhost:2209${blog.img}`
+            // ? `http://localhost:2209${blog.img}`
+            ? `${import.meta.env.VITE_API_URL}${blog.img}`
             : "https://via.placeholder.com/300"
         }
         alt={blog.title}

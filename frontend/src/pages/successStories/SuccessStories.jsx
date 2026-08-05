@@ -19,7 +19,10 @@ export const SuccessStories = () => {
     useEffect(() => {
         const fetchStories = async () => {
             try {
-                const res = await axios.get("http://localhost:2209/api/success-stories");
+                // const res = await axios.get("http://localhost:2209/api/success-stories");
+                const res = await axios.get(
+                    `${import.meta.env.VITE_API_URL}/api/success-stories`
+                );
                 setStories(res.data);
             } catch (err) {
                 console.error(err);
@@ -47,10 +50,20 @@ export const SuccessStories = () => {
             data.append("story", formData.story);
             if (formData.imgFile) data.append("img", formData.imgFile);
 
+            // const res = await axios.post(
+            //     "http://localhost:2209/api/success-stories",
+            //     data,
+            //     { headers: { "Content-Type": "multipart/form-data" } }
+            // );
+
             const res = await axios.post(
-                "http://localhost:2209/api/success-stories",
+                `${import.meta.env.VITE_API_URL}/api/success-stories`,
                 data,
-                { headers: { "Content-Type": "multipart/form-data" } }
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
             );
 
             setStories([res.data, ...stories]);
@@ -90,7 +103,12 @@ export const SuccessStories = () => {
                         className="story-card"
                     >
                         <img
-                            src={story.img ? `http://localhost:2209${story.img}` : "https://via.placeholder.com/100"}
+                            // src={story.img ? `http://localhost:2209${story.img}` : "https://via.placeholder.com/100"}
+                            src={
+                                story.img
+                                    ? `${import.meta.env.VITE_API_URL}${story.img}`
+                                    : "https://via.placeholder.com/100"
+                            }
                             alt={story.name}
                             className="story-img"
                         />

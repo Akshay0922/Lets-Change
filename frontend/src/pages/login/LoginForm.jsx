@@ -161,11 +161,19 @@ export const LoginForm = () => {
     onSubmit: async (values, { resetForm }) => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:2209/api/auth/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(values),
-        });
+        // const res = await fetch("http://localhost:2209/api/auth/login", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify(values),
+        // });
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/auth/login`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(values),
+          }
+        );
 
         const data = await res.json();
 

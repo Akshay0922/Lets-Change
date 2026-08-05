@@ -20,14 +20,17 @@ export const Success = () => {
       }
 
       try {
-        const res = await fetch(`http://localhost:2209/api/payment/session/${sessionId}`);
+        // const res = await fetch(`http://localhost:2209/api/payment/session/${sessionId}`);
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/payment/session/${sessionId}`
+        );
         const data = await res.json();
 
         if (data.error) throw new Error(data.error);
 
         setInvoiceData(data);
         setShowPopup(true);
-        localStorage.removeItem("cart"); 
+        localStorage.removeItem("cart");
         // generateInvoice(data);
       } catch (err) {
         console.error("Error fetching session:", err);

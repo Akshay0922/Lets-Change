@@ -128,19 +128,36 @@ export const ChangeDetail = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:2209/api/payment/buy-now", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token ? `Bearer ${token}` : undefined,
-        },
-        body: JSON.stringify({
-          product: {
-            name: product.name,
-            price: Number(product.price),
+      // const res = await fetch("http://localhost:2209/api/payment/buy-now", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: token ? `Bearer ${token}` : undefined,
+      //   },
+      //   body: JSON.stringify({
+      //     product: {
+      //       name: product.name,
+      //       price: Number(product.price),
+      //     },
+      //   }),
+      // });
+
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/payment/buy-now`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token ? `Bearer ${token}` : undefined,
           },
-        }),
-      });
+          body: JSON.stringify({
+            product: {
+              name: product.name,
+              price: Number(product.price),
+            },
+          }),
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to create checkout session");
 

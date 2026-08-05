@@ -28,8 +28,16 @@ export const ResetPassword = () => {
     onSubmit: async (values, { resetForm }) => {
       setLoading(true);
       try {
+        // const res = await fetch(
+        //   `http://localhost:2209/api/auth/reset-password/${token}`,
+        //   {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({ password: values.password }),
+        //   }
+        // );
         const res = await fetch(
-          `http://localhost:2209/api/auth/reset-password/${token}`,
+          `${import.meta.env.VITE_API_URL}/api/auth/reset-password/${token}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

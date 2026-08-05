@@ -21,9 +21,19 @@ export const AddBlog = () => {
             formData.append("author", author);
             if (img) formData.append("img", img);
 
-            await axios.post("http://localhost:2209/api/blogs", formData, {
-                headers: { "Content-Type": "multipart/form-data" },
-            });
+            // await axios.post("http://localhost:2209/api/blogs", formData, {
+            //     headers: { "Content-Type": "multipart/form-data" },
+            // });
+
+            await axios.post(
+                `${import.meta.env.VITE_API_URL}/api/blogs`,
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            );
 
             alert("✅ Blog added successfully!");
             navigate("/blog"); // Add blog ke baad list page pe bhej do

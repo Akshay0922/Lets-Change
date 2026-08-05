@@ -22,7 +22,10 @@ export const SuccessStoryDetail = () => {
   useEffect(() => {
     const fetchStory = async () => {
       try {
-        const res = await axios.get(`http://localhost:2209/api/success-stories/${id}`);
+        // const res = await axios.get(`http://localhost:2209/api/success-stories/${id}`);
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/success-stories/${id}`
+        );
         setStory(res.data);
         setFormData({
           name: res.data.name,
@@ -40,7 +43,10 @@ export const SuccessStoryDetail = () => {
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this story?")) return;
     try {
-      await axios.delete(`http://localhost:2209/api/success-stories/${id}`);
+      // await axios.delete(`http://localhost:2209/api/success-stories/${id}`);
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/success-stories/${id}`
+      );
       alert("✅ Story deleted");
       navigate("/success-stories");
     } catch (err) {
@@ -68,8 +74,12 @@ export const SuccessStoryDetail = () => {
       data.append("story", formData.story);
       if (formData.imgFile) data.append("img", formData.imgFile);
 
+      // const res = await axios.put(
+      //   `http://localhost:2209/api/success-stories/${id}`,
+      //   data
+      // );
       const res = await axios.put(
-        `http://localhost:2209/api/success-stories/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/success-stories/${id}`,
         data
       );
 
@@ -92,7 +102,12 @@ export const SuccessStoryDetail = () => {
         <>
           <h1>{story.name}'s Success Story</h1>
           <img
-            src={story.img ? `http://localhost:2209${story.img}` : "https://via.placeholder.com/150"}
+            // src={story.img ? `http://localhost:2209${story.img}` : "https://via.placeholder.com/150"}
+            src={
+              story.img
+                ? `${import.meta.env.VITE_API_URL}${story.img}`
+                : "https://via.placeholder.com/150"
+            }
             alt={story.name}
             className="detail-img"
           />
@@ -134,7 +149,12 @@ export const SuccessStoryDetail = () => {
             <img src={preview} alt="Preview" className="preview-img" />
           ) : (
             story.img && (
-              <img src={`http://localhost:2209${story.img}`} alt="Current" className="preview-img" />
+              // <img src={`http://localhost:2209${story.img}`} alt="Current" className="preview-img" />
+              <img
+                src={`${import.meta.env.VITE_API_URL}${story.img}`}
+                alt="Current"
+                className="preview-img"
+              />
             )
           )}
 

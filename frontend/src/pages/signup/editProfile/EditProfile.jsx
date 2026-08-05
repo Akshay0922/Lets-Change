@@ -40,11 +40,21 @@ export const EditProfile = () => {
         if (values.password) formData.append("password", values.password);
         if (values.profilePic) formData.append("profilePic", values.profilePic);
 
-        const res = await fetch("http://localhost:2209/api/profile/me", {
-          method: "PUT",
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-          body: formData,
-        });
+        // const res = await fetch("http://localhost:2209/api/profile/me", {
+        //   method: "PUT",
+        //   headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        //   body: formData,
+        // });
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/profile/me`,
+          {
+            method: "PUT",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+            body: formData,
+          }
+        );
 
         const data = await res.json();
 
@@ -83,7 +93,8 @@ export const EditProfile = () => {
                 src={
                   preview ||
                   (storedUser?.profilePic
-                    ? `http://localhost:2209/${storedUser.profilePic}`
+                    // ? `http://localhost:2209/${storedUser.profilePic}`
+                    ? `${import.meta.env.VITE_API_URL}/${storedUser.profilePic}`
                     : "/default-avatar.png")
                 }
                 alt="Profile Preview"

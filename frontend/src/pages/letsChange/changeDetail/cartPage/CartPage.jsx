@@ -51,7 +51,8 @@ export const CartPage = () => {
       if (token) headers.Authorization = `Bearer ${token}`;
 
       const res = await fetch(
-        "http://localhost:2209/api/payment/create-checkout-session",
+        // "http://localhost:2209/api/payment/create-checkout-session",
+        `${import.meta.env.VITE_API_URL}/api/payment/create-checkout-session`,
         {
           method: "POST",
           headers,

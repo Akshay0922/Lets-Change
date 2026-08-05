@@ -68,7 +68,8 @@ export const Header = () => {
                 <div className="dropdown-user-info">
                   {currentUser.profilePic ? (
                     <img
-                      src={`http://localhost:2209/${currentUser.profilePic}`}
+                      // src={`http://localhost:2209/${currentUser.profilePic}`}
+                      src={`${import.meta.env.VITE_API_URL}/${currentUser.profilePic}`}
                       alt="Profile"
                       className="avatar-img"
                     />
