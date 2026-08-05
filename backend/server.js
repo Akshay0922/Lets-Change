@@ -44,6 +44,10 @@ app.use("/api/blogs", blogRoutes);
 
 app.use("/api/ai", aiRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 app.post("/api/contact", async (req, res) => {
   const { name, email, subject, message } = req.body;
 
