@@ -55,7 +55,7 @@ import HairMamaearthOnionOil from '../../../assets/contentImages/hairCare/produc
 // Home Remedies
 import BodyUbtanPack from '../../../assets/contentImages/bodyCare/homeRemedies/bodyUbtanPack.jpg';
 import BodyCoconutOilMassage from '../../../assets/contentImages/bodyCare/homeRemedies/bodyCoconutOilMassage.jpg';
-import BodySugarAndOliveOil from '../../../assets/contentImages/bodyCare/homeRemedies/bodySugarAndOliveOil.jpg';
+import BodySugarAndOliveOil from '../../../assets/contentImages/bodyCare/homeRemedies/bodysugarAndOliveOil.jpg';
 
 // Yoga & Meditation
 import BodySuryaNamaskar from '../../../assets/contentImages/bodyCare/yogaAndMeditation/bodySuryaNamaskar.jpg';
