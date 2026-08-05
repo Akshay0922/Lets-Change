@@ -44,9 +44,9 @@ import HairBalayam from '../../../assets/contentImages/hairCare/yogaAndMeditatio
 
 // Products
 import HairParachuteCoconutOil from '../../../assets/contentImages/hairCare/products/hairParachuteCoconutOil.png';
-import HairHimalayaAloeveraGel from '../../../assets/contentImages/hairCare/products/HairHimalayaAloeveraGel.png';
-import HairMamaearthHerbalShampoo from '../../../assets/contentImages/hairCare/products/HairMamaearthHerbalShampoo.png';
-import HairMamaearthOnionOil from '../../../assets/contentImages/hairCare/products/HairMamaearthOnionOil.png';
+import HairHimalayaAloeveraGel from '../../../assets/contentImages/hairCare/products/hairHimalayaAloeveraGel.png';
+import HairMamaearthHerbalShampoo from '../../../assets/contentImages/hairCare/products/hairMamaearthHerbalShampoo.png';
+import HairMamaearthOnionOil from '../../../assets/contentImages/hairCare/products/hairMamaearthOnionOil.png';
 
 
 
